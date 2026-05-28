@@ -18,7 +18,7 @@ class Cliente {
     public ?string $created_at;
     public ?string $updated_at;
 
-    public function usuarios(){
+    public function usuario(){
         return $this->belongsTo(UserRepository::class, $this->usuarios_id);
     }
 

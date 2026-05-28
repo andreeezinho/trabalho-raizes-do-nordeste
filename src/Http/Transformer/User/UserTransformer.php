@@ -9,13 +9,10 @@ class UserTransformer {
     public function transform(User $data) : array {
         return [
             'uuid' => $data->uuid,
-            'usuario' => $data->usuario,
             'nome' => $data->nome,
             'email' => $data->email,
-            'cpf' => $data->cpf,
             'telefone' => $data->telefone,
             'ativo' => $data->ativo,
-            'is_admin' => $data->is_admin,
             'icone' => $data->icone,
             'created_at' => $data->created_at,
             'updated_at' => $data->updated_at
