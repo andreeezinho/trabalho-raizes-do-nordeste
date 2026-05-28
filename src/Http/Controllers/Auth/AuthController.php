@@ -9,6 +9,7 @@ use App\Domain\Repositories\User\UserRepositoryInterface;
 use App\Http\Transformer\User\UserTransformer;
 use App\Infra\Services\Log\LogService;
 use App\Infra\Services\Email\EmailService;
+use App\Infra\Services\Google\GoogleAuthService;
 
 class AuthController extends Controller {
 
@@ -16,11 +17,13 @@ class AuthController extends Controller {
     protected $fileService;
     protected $emailService;
     protected $userTransformer;
+    protected $googleAuthService;
 
-    public function __construct(UserRepositoryInterface $userRepository, EmailService $emailService, UserTransformer $userTransformer){
+    public function __construct(UserRepositoryInterface $userRepository, EmailService $emailService,  GoogleAuthService $googleAuthService, UserTransformer $userTransformer){
         parent::__construct();
         $this->userRepository = $userRepository;
         $this->emailService = $emailService;
+        $this->googleAuthService = $googleAuthService;
         $this->userTransformer = $userTransformer;
     }
 
@@ -58,6 +61,66 @@ class AuthController extends Controller {
         
         return $this->respJson([
             'message' => 'Sucesso ao logar',
+            'data' => $token
+        ]);
+    }
+
+    public function generateGoogleAuthLink(Request $request){
+        $this->googleAuthService->init();
+
+        return $this->respJson([
+            'message' => 'Sucesso ao gerar o link',
+            'data' => $this->googleAuthService->generateAuthLink()
+        ]);
+    }
+
+    public function loginWithGoogle(Request $request){
+        $this->googleAuthService->init();
+           
+        $googleAuth = $this->googleAuthService->authorized($request->all()['code']);
+        
+        if(!$googleAuth){
+            return $this->respJson([
+                'message' => 'Não foi possível autenticar com Google'
+            ], 401);
+        }   
+
+        $user = $this->userRepository->findBy('email', $this->googleAuthService->getClientData()->email);
+
+        if(!is_null($user)){
+            $user = $this->userTransformer->transform($user);
+
+            $token = JWT::generateToken((array)$user, 30600);
+            
+            LogService::logInfo("Usuário LOGADO com o Google", ['uuid' => $user['uuid']]);
+
+            return $this->respJson([
+                'message' => 'Sucesso ao logar com Google',
+                'data' => $token
+            ]);
+        }
+
+        $user = $this->userRepository->create([
+            'nome' => $this->googleAuthService->getClientData()->name,
+            'email' => $this->googleAuthService->getClientData()->email,
+            'icone' => $this->googleAuthService->getClientData()->picture,
+            'ativo' => 1
+        ]);
+    
+        if(is_null($user)){
+            return $this->respJson([
+                'message' => 'Erro ao cadastrar usuário'
+            ], 500);
+        }
+
+        $user = $this->userTransformer->transform($user);
+
+        $token = JWT::generateToken((array)$user, 30600);
+        
+        LogService::logInfo("Usuário CADASTRADO com Google", ['uuid' => $user['uuid']]);
+
+        return $this->respJson([
+            'message' => 'Sucesso ao logar com Google',
             'data' => $token
         ]);
     }
