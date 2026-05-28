@@ -1,0 +1,23 @@
+/.vscode/
+/.idea/
+*.swp
+*.swo
+*~
+
+/logs/app.log
+
+/.env
+
+/vendor/
+
+public/img/users/**
+!public/img/users/default.png
+
+public/NFe/Xml/**
+!public/NFe/Xml/example.xml
+
+/googleauthcredentials.json
+
+/certificate.pfx
+
+bd (backup).sql
