@@ -20,7 +20,7 @@ class FuncionarioTransformer {
         return [
             'uuid' => $data->uuid,
             'usuario' => $this->userTransformer->transform($data->usuario()),
-            'filial' => $this->userTransformer->transform($data->filial()),
+            'filial' => $this->filialTransformer->transform($data->filial()),
             'cargo' => $data->cargo,
             'created_at' => $data->created_at,
             'updated_at' => $data->updated_at
