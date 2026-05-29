@@ -7,23 +7,27 @@ use App\Http\Controllers\Controller;
 use App\Domain\Repositories\Pedido\PedidoRepositoryInterface;
 use App\Domain\Repositories\Filial\FilialRepositoryInterface;
 use App\Domain\Repositories\Cliente\ClienteRepositoryInterface;
+use App\Domain\Repositories\Produto\ProdutoRepositoryInterface;
 use App\Http\Transformer\Pedido\PedidoTransformer;
 
 class PedidoController extends Controller {
 
     protected $pedidoRepository;
     protected $filialRepository;
+    protected $produtoRepository;
     protected $clienteRepository;
     protected $pedidoTransformer;
 
     public function __construct(
         PedidoRepositoryInterface $pedidoRepository,
         FilialRepositoryInterface $filialRepository,
+        ProdutoRepositoryInterface $produtoRepository,
         ClienteRepositoryInterface $clienteRepository,
         PedidoTransformer $pedidoTransformer
     ){
         $this->pedidoRepository = $pedidoRepository;
         $this->filialRepository = $filialRepository;
+        $this->produtoRepository = $produtoRepository;
         $this->clienteRepository = $clienteRepository;
         $this->pedidoTransformer = $pedidoTransformer;
     }
