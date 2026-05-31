@@ -17,6 +17,7 @@ class User {
     public ?string $telefone;
     public string $data_nasc;
     public ?string $senha;
+    public int $is_admin;
     public int $ativo;
     public ?string $icone;
     public ?string $created_at;

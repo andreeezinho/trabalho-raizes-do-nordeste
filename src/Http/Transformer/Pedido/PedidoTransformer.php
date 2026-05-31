@@ -31,10 +31,10 @@ class PedidoTransformer {
         ];
     }
 
-    public function transformArray(array $funcionarios) : array {
+    public function transformArray(array $pedidos) : array {
         return array_map(function(Pedido $data) {
             return self::transform($data);
-        }, $funcionarios);
+        }, $pedidos);
     }
 
 }
