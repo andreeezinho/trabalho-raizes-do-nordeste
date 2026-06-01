@@ -36,6 +36,8 @@ $produtoController = $container->get(ProdutoController::class);
 
 //autenticacao
 $router->create("POST", "/auth", [$authController, 'login'], null);
+$router->create("POST", "/google-auth", [$authController, 'loginWithGoogle'], null);
+$router->create("GET", "/google-link", [$authController, 'generateGoogleAuthLink'], null);
 $router->create("GET", "/me", [$authController, 'profile'], $auth);
 
 //usuarios
