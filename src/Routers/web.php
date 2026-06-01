@@ -50,4 +50,46 @@ $router->create("DELETE", "/usuarios/{uuid}", [$userController, 'destroy'], $aut
 $router->create("POST", "/recuperar-senha/enviar-codigo", [$recuperarSenhaController, 'sendVerificationCode'], null);
 $router->create("PUT", "/recuperar-senha", [$recuperarSenhaController, 'changePassword'], null);
 
+//clientes
+$router->create("GET", "/clientes", [$clienteController, 'index'], $auth);
+$router->create("POST", "/clientes", [$clienteController, 'store'], $auth);
+$router->create("PUT", "/clientes/{uuid}", [$clienteController, 'update'], $auth);
+$router->create("DELETE", "/clientes/{uuid}", [$clienteController, 'destroy'], $auth);
+
+//filiais
+$router->create("GET", "/filiais", [$filialController, 'index'], $auth);
+$router->create("POST", "/filiais", [$filialController, 'store'], $auth);
+$router->create("PUT", "/filiais/{uuid}", [$filialController, 'update'], $auth);
+$router->create("DELETE", "/filiais/{uuid}", [$filialController, 'destroy'], $auth);
+
+//funcionarios
+$router->create("GET", "/funcionarios", [$funcionarioController, 'index'], $auth);
+$router->create("POST", "/funcionarios", [$funcionarioController, 'store'], $auth);
+$router->create("PUT", "/funcionarios/{uuid}", [$funcionarioController, 'update'], $auth);
+$router->create("DELETE", "/funcionarios/{uuid}", [$funcionarioController, 'destroy'], $auth);
+
+//metas
+$router->create("GET", "/metas", [$metaController, 'index'], $auth);
+$router->create("POST", "/metas", [$metaController, 'store'], $auth);
+$router->create("PUT", "/metas/{uuid}", [$metaController, 'update'], $auth);
+$router->create("DELETE", "/metas/{uuid}", [$metaController, 'destroy'], $auth);
+
+//pedidos
+$router->create("GET", "/pedidos", [$pedidoController, 'index'], $auth);
+$router->create("POST", "/pedidos", [$pedidoController, 'store'], $auth);
+$router->create("PUT", "/pedidos/{uuid}", [$pedidoController, 'update'], $auth);
+$router->create("DELETE", "/pedidos/{uuid}", [$pedidoController, 'destroy'], $auth);
+
+//pedido-produto
+$router->create("GET", "/pedido-produto", [$pedidoProdutoController, 'index'], $auth);
+$router->create("POST", "/pedido-produto", [$pedidoProdutoController, 'store'], $auth);
+$router->create("PUT", "/pedido-produto/{uuid}", [$pedidoProdutoController, 'update'], $auth);
+$router->create("DELETE", "/pedido-produto/{uuid}", [$pedidoProdutoController, 'destroy'], $auth);
+
+//produtos
+$router->create("GET", "/produtos", [$produtoController, 'index'], $auth);
+$router->create("POST", "/produtos", [$produtoController, 'store'], $auth);
+$router->create("PUT", "/produtos/{uuid}", [$produtoController, 'update'], $auth);
+$router->create("DELETE", "/produtos/{uuid}", [$produtoController, 'destroy'], $auth);
+
 return $router;
