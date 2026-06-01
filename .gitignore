@@ -20,4 +20,4 @@ public/NFe/Xml/**
 
 /certificate.pfx
 
-bd (backup).sql
+googleAuthCredentials.json
