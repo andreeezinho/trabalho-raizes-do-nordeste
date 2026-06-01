@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Request\Request;
 use App\Infra\Services\JWT\JWT;
 use App\Domain\Repositories\User\UserRepositoryInterface;
+use App\Domain\Repositories\Cliente\ClienteRepositoryInterface;
 use App\Http\Transformer\User\UserTransformer;
 use App\Infra\Services\Log\LogService;
 use App\Infra\Services\Email\EmailService;
@@ -14,14 +15,16 @@ use App\Infra\Services\Google\GoogleAuthService;
 class AuthController extends Controller {
 
     protected $userRepository;
+    protected $clienteRepository;
     protected $fileService;
     protected $emailService;
     protected $userTransformer;
     protected $googleAuthService;
 
-    public function __construct(UserRepositoryInterface $userRepository, EmailService $emailService,  GoogleAuthService $googleAuthService, UserTransformer $userTransformer){
+    public function __construct(UserRepositoryInterface $userRepository, ClienteRepositoryInterface $clienteRepository, EmailService $emailService,  GoogleAuthService $googleAuthService, UserTransformer $userTransformer){
         parent::__construct();
         $this->userRepository = $userRepository;
+        $this->clienteRepository = $clienteRepository;
         $this->emailService = $emailService;
         $this->googleAuthService = $googleAuthService;
         $this->userTransformer = $userTransformer;
@@ -108,6 +111,17 @@ class AuthController extends Controller {
         ]);
     
         if(is_null($user)){
+            return $this->respJson([
+                'message' => 'Erro ao cadastrar usuário'
+            ], 500);
+        }
+
+        $cliente = $this->clienteRepository->create([
+            'usuarios_id' => $user->id,
+            'pontos' => 0
+        ]);
+
+        if(is_null($cliente)){
             return $this->respJson([
                 'message' => 'Erro ao cadastrar usuário'
             ], 500);
