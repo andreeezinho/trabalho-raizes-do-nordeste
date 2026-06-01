@@ -7,16 +7,13 @@ use App\Config\DependencyProvider;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\RecuperarSenha\RecuperarSenhaController;
-use App\Http\Controllers\Tributacao\TributacaoController;
-use App\Http\Controllers\GrupoProduto\GrupoProdutoController;
-use App\Http\Controllers\Produto\ProdutoController;
-use App\Http\Controllers\Pagamento\PagamentoController;
-use App\Http\Controllers\Endereco\EnderecoController;
 use App\Http\Controllers\Cliente\ClienteController;
-use App\Http\Controllers\Pdv\PdvController;
-use App\Http\Controllers\Empresa\EmpresaController;
-use App\Http\Controllers\NotaFiscal\NotaFiscalController;
-use App\Http\Controllers\NotaFiscal\NotaFiscalEntradaController;
+use App\Http\Controllers\Filial\FilialController;
+use App\Http\Controllers\Funcionario\FuncionarioController;
+use App\Http\Controllers\Meta\MetaController;
+use App\Http\Controllers\Pedido\PedidoController;
+use App\Http\Controllers\Pedido\PedidoProdutoController;
+use App\Http\Controllers\Produto\ProdutoController;
 
 $router = new Router();
 $auth = new Auth();
@@ -27,6 +24,13 @@ $dependencyProvider->register();
 $authController = $container->get(AuthController::class);
 $userController = $container->get(UserController::class);
 $recuperarSenhaController = $container->get(RecuperarSenhaController::class);
+$clienteController = $container->get(ClienteController::class);
+$filialController = $container->get(FilialController::class);
+$funcionarioController = $container->get(FuncionarioController::class);
+$metaController = $container->get(MetaController::class);
+$pedidoController = $container->get(PedidoController::class);
+$pedidoProdutoController = $container->get(PedidoProdutoController::class);
+$produtoController = $container->get(ProdutoController::class);
 
 // - Rotas
 
