@@ -51,7 +51,7 @@ class RecuperarSenhaController extends Controller {
             ], 500);
         }
 
-        $sendEmail = $this->emailService->sendPasswordReset($user->email, $user->usuario, $create->codigo, $create->expires_at);
+        $sendEmail = $this->emailService->sendPasswordReset($user->email, $user->nome, $create->codigo, $create->expires_at);
 
         if(!$sendEmail){
             return $this->respJson([
@@ -92,7 +92,7 @@ class RecuperarSenhaController extends Controller {
             ], 422);
         }
 
-        $update = $this->userRepository->update($data['senha'], $user->id);
+        $update = $this->userRepository->update(['senha' => $data['senha']], $user->id);
 
         if(is_null($update)){
             return $this->respJson([
