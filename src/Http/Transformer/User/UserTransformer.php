@@ -12,6 +12,7 @@ class UserTransformer {
             'nome' => $data->nome,
             'email' => $data->email,
             'telefone' => $data->telefone,
+            'data_nasc' => $data->data_nasc,
             'ativo' => $data->ativo,
             'icone' => $data->icone,
             'created_at' => $data->created_at,

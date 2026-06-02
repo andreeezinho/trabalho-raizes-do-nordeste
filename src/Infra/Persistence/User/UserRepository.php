@@ -15,11 +15,11 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface {
         $this->model = new User();
     }
 
-    public function login(string $usuario, string $senha){
+    public function login(string $email, string $senha){
         $sql = "SELECT * FROM 
                 {$this->model->getTable()}
             WHERE
-                usuario = :usuario
+                email = :email
             AND
                 ativo = 1
         ";
@@ -27,7 +27,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface {
         $stmt = $this->conn->prepare($sql);
 
         $stmt->execute([
-            'usuario' => $usuario
+            'email' => $email
         ]);
 
         $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, static::$className);
