@@ -20,8 +20,4 @@ public/NFe/Xml/**
 
 /certificate.pfx
 
-<<<<<<< HEAD
 googleAuthCredentials.json
-=======
-googleAuthCredentials.json
->>>>>>> 6e82d05 (fix: remove googleAuth credential)
