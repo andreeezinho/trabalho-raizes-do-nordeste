@@ -4,6 +4,8 @@ namespace App\Domain\Repositories\Pedido;
 
 interface PedidoProdutoRepositoryInterface {
 
+    public function findProductsInOrder(int $pedidos_id);
+
     public function all(array $params);
 
     public function create(array $data);

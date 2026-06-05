@@ -78,6 +78,7 @@ $router->create("DELETE", "/metas/{uuid}", [$metaController, 'destroy'], $auth);
 $router->create("GET", "/pedidos", [$pedidoController, 'index'], $auth);
 $router->create("POST", "/pedidos", [$pedidoController, 'store'], $auth);
 $router->create("PUT", "/pedidos/{uuid}", [$pedidoController, 'update'], $auth);
+$router->create("PUT", "/pedidos/{uuid}/pagar", [$pedidoController, 'confirmPayment'], $auth);
 $router->create("DELETE", "/pedidos/{uuid}", [$pedidoController, 'destroy'], $auth);
 
 //pedido-produto

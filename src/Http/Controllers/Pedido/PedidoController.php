@@ -8,6 +8,7 @@ use App\Domain\Repositories\Pedido\PedidoRepositoryInterface;
 use App\Domain\Repositories\Filial\FilialRepositoryInterface;
 use App\Domain\Repositories\Cliente\ClienteRepositoryInterface;
 use App\Domain\Repositories\Produto\ProdutoRepositoryInterface;
+use App\Domain\Repositories\Pedido\PedidoProdutoRepositoryInterface;
 use App\Http\Transformer\Pedido\PedidoTransformer;
 
 class PedidoController extends Controller {
@@ -16,6 +17,7 @@ class PedidoController extends Controller {
     protected $filialRepository;
     protected $produtoRepository;
     protected $clienteRepository;
+    protected $pedidoProdutoRepository;
     protected $pedidoTransformer;
 
     public function __construct(
@@ -23,12 +25,14 @@ class PedidoController extends Controller {
         FilialRepositoryInterface $filialRepository,
         ProdutoRepositoryInterface $produtoRepository,
         ClienteRepositoryInterface $clienteRepository,
+        PedidoProdutoRepositoryInterface $pedidoProdutoRepository,
         PedidoTransformer $pedidoTransformer
     ){
         $this->pedidoRepository = $pedidoRepository;
         $this->filialRepository = $filialRepository;
         $this->produtoRepository = $produtoRepository;
         $this->clienteRepository = $clienteRepository;
+        $this->pedidoProdutoRepository = $pedidoProdutoRepository;
         $this->pedidoTransformer = $pedidoTransformer;
     }
 
@@ -105,6 +109,57 @@ class PedidoController extends Controller {
 
         return $this->respJson([
             'message' => 'Sucesso ao atualizar pedido',
+            'data' => $this->pedidoTransformer->transform($pedido)
+        ], 201);
+    }
+
+    public function confirmPayment(Request $request, $uuid){
+        $data = $request->all();
+
+        $pedido = $this->pedidoRepository->findBy('uuid', $uuid);
+
+        if(is_null($pedido)){
+            return $this->respJson([
+                'message' => 'Pedido não encontrado'
+            ], 422);
+        }
+
+        $validate = $this->validate($data, [
+            'valor_pago' => 'required|float',
+            'pagamento' => 'required'
+        ]);
+
+        if(is_null($validate)){
+            return $this->respJson([
+                'message' => 'Dados inválidos',
+                'errors' => $this->getErrors()
+            ], 422);
+        }
+
+        $total = 0;
+
+        foreach($this->pedidoProdutoRepository->findProductsInOrder($pedido->id) as $prod){
+            $preco = $this->produtoRepository->findBy('id', $prod->produtos_id)->preco * $prod->quantidade;
+
+            $total += $preco;
+        }
+
+        if($total > $data['valor_pago']){
+            return $this->respJson([
+                'message' => 'Valor pago menor que o total do pedido'
+            ], 422);
+        }
+
+        $pedido = $this->pedidoRepository->update($data, $pedido->id);
+
+        if(is_null($pedido)){
+            return $this->respJson([
+                'message' => 'Não foi possível atualizar pedido'
+            ], 500);
+        }
+
+        return $this->respJson([
+            'message' => 'Sucesso ao realizar pagamento do pedido',
             'data' => $this->pedidoTransformer->transform($pedido)
         ], 201);
     }
