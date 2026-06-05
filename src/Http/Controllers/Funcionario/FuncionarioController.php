@@ -35,34 +35,6 @@ class FuncionarioController extends Controller {
         ]);
     }
 
-    public function store(Request $request){
-        $data = $request->all();
-
-        $validate = $this->validate($data, [
-            'cargo' => 'string',
-        ]);
-
-        if(is_null($validate)){
-            return $this->respJson([
-                'message' => 'Dados inválidos',
-                'errors' => $this->getErrors()
-            ], 422);
-        }
-
-        $funcionario = $this->funcionarioRepository->create($data);
-
-        if(is_null($funcionario)){
-            return $this->respJson([
-                'message' => 'Não foi possível cadastrar funcionario'
-            ], 500);
-        }
-
-        return $this->respJson([
-            'message' => 'Cadastro realizado com sucesso',
-            'data' => $this->funcionarioTransformer->transform($funcionario)
-        ], 201);
-    }
-
     public function update(Request $request, $uuid){
         $data = $request->all();
 

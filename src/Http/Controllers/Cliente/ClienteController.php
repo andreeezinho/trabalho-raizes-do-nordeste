@@ -29,35 +29,6 @@ class ClienteController extends Controller{
         ]);
     }
 
-    public function store(Request $request){
-        $data = $request->all();
-
-        $validate = $this->validate($data, [
-            'pontos' => 'int',
-            'ativo' => 'max:1'
-        ]);
-
-        if(is_null($validate)){
-            return $this->respJson([
-                'message' => 'Dados inválidos',
-                'errors' => $this->getErrors()
-            ], 422);
-        }
-
-        $cliente = $this->clienteRepository->create($data);
-
-        if(is_null($cliente)){
-            return $this->respJson([
-                'message' => 'Não foi possível cadastrar cliente'
-            ], 500);
-        }
-
-        return $this->respJson([
-            'message' => 'Cadastro realizado com sucesso',
-            'data' => $this->clienteTransformer->transform($cliente)
-        ], 201);
-    }
-
     public function update(Request $request, $uuid){
         $data = $request->all();
 

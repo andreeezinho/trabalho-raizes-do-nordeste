@@ -15,7 +15,6 @@ class Pedido {
     public int $id;
     public ?string $uuid;
     public string $situacao;
-    public string $forma_pagamento;
     public int $pagamento;
     public string $status;
     public int $filiais_id;

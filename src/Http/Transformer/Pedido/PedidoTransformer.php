@@ -20,7 +20,6 @@ class PedidoTransformer {
         return [
             'uuid' => $data->uuid,
             'situacao' => $data->situacao,
-            'forma_pagamento' => $data->forma_pagamento,
             'pagamento' => $data->pagamento,
             'status' => $data->status,
             'filial' => $this->filialTransformer->transform($data->filial()),

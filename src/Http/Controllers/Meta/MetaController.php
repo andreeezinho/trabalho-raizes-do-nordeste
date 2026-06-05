@@ -40,7 +40,7 @@ class MetaController extends Controller {
 
         $validate = $this->validate($data, [
             'valor' => 'required',
-            'concluida' => 'required|int',
+            'concluida' => 'required',
             'ativo' => 'int|max:1',
             'expires_at' => 'required|string',
         ]);
@@ -79,7 +79,7 @@ class MetaController extends Controller {
 
         $validate = $this->validate($data, [
             'valor' => 'required',
-            'concluida' => 'required|int',
+            'concluida' => 'required',
             'ativo' => 'int|max:1',
             'expires_at' => 'required|string',
         ]);

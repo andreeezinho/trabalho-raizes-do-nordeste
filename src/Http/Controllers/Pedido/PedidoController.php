@@ -47,8 +47,7 @@ class PedidoController extends Controller {
         $data = $request->all();
 
         $validate = $this->validate($data, [
-            'forma_pagamento' => 'required|string',
-            'pagamento' => 'required|int',
+            'pagamento' => 'required',
             'canalPedido' => 'required|string'
         ]);
 
@@ -60,7 +59,7 @@ class PedidoController extends Controller {
         }
 
         $pedido = $this->pedidoRepository->create($data);
-
+    
         if(is_null($pedido)){
             return $this->respJson([
                 'message' => 'Não foi possível cadastrar pedido'
@@ -85,8 +84,7 @@ class PedidoController extends Controller {
         }
 
         $validate = $this->validate($data, [
-            'forma_pagamento' => 'required|string',
-            'pagamento' => 'required|int',
+            'pagamento' => 'required',
             'canalPedido' => 'required|string'
         ]);
 

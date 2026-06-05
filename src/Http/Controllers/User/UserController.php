@@ -5,6 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Request\Request;
 use App\Domain\Repositories\User\UserRepositoryInterface;
+use App\Domain\Repositories\Cliente\ClienteRepositoryInterface;
+use App\Domain\Repositories\Funcionario\FuncionarioRepositoryInterface;
 use App\Http\Transformer\User\UserTransformer;
 use App\Infra\Services\File\FileService;
 use App\Infra\Services\Log\LogService;
@@ -13,13 +15,24 @@ use App\Infra\Services\Email\EmailService;
 class UserController extends Controller {
 
     protected $userRepository;
+    protected $clienteRepository;
+    protected $funcionarioRepository;
     protected $fileService;
     protected $emailService;
     protected $userTransformer;
 
-    public function __construct(UserRepositoryInterface $userRepository, FileService $fileService, EmailService $emailService, UserTransformer $userTransformer){
+    public function __construct(
+        UserRepositoryInterface $userRepository, 
+        ClienteRepositoryInterface $clienteRepository,
+        FuncionarioRepositoryInterface $funcionarioRepository,
+        FileService $fileService, 
+        EmailService $emailService, 
+        UserTransformer $userTransformer
+    ){
         parent::__construct();
         $this->userRepository = $userRepository;
+        $this->clienteRepository = $clienteRepository;
+        $this->funcionarioRepository = $funcionarioRepository;
         $this->fileService = $fileService;
         $this->emailService = $emailService;
         $this->userTransformer = $userTransformer;
@@ -40,12 +53,9 @@ class UserController extends Controller {
         $data = $request->all();
 
         $validate = $this->validate($data, [
-            'usuario' => 'required|string|max:20',
             'nome' => 'required|string|max:255',
             'email' => 'required|email',
-            'cpf' => 'required|string|max:14',
             'telefone' => 'string|max:15',
-            'senha' => 'required|string|min:8',
             'ativo' => 'max:1'
         ]);
 
@@ -62,6 +72,37 @@ class UserController extends Controller {
             return $this->respJson([
                 'message' => 'Erro ao cadastrar usuário'
             ], 500);
+        }
+
+        if(isset($data['is_client']) && $data['is_client']){
+            $cliente = $this->clienteRepository->create([
+                'usuarios_id' => $user->id,
+                'pontos' => 0
+            ]);
+
+            if(is_null($cliente)){
+                $this->userRepository->delete($user->id);
+                
+                return $this->respJson([
+                    'message' => 'Erro ao cadastrar usuário'
+                ], 500);
+            }
+        }
+
+        if(isset($data['is_employee']) && $data['is_employee']){
+            $funcionario = $this->funcionarioRepository->create([
+                'usuarios_id' => $user->id,
+                'filiais_id' => $data['filiais_id'],
+                'cargo' => $data['cargo']
+            ]);
+
+            if(is_null($funcionario)){
+                $this->userRepository->delete($user->id);
+                
+                return $this->respJson([
+                    'message' => 'Erro ao cadastrar usuário'
+                ], 500);
+            }
         }
 
         return $this->respJson([
@@ -82,10 +123,8 @@ class UserController extends Controller {
         $data = $request->all();
 
         $validate = $this->validate($data, [
-            'usuario' => 'required|string|max:20',
             'nome' => 'required|string|max:255',
             'email' => 'required|email',
-            'cpf' => 'required|string|max:14',
             'telefone' => 'required|string|max:15',
             'ativo' => 'max:1'
         ]);

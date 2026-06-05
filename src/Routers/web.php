@@ -54,7 +54,6 @@ $router->create("PUT", "/recuperar-senha", [$recuperarSenhaController, 'changePa
 
 //clientes
 $router->create("GET", "/clientes", [$clienteController, 'index'], $auth);
-$router->create("POST", "/clientes", [$clienteController, 'store'], $auth);
 $router->create("PUT", "/clientes/{uuid}", [$clienteController, 'update'], $auth);
 $router->create("DELETE", "/clientes/{uuid}", [$clienteController, 'destroy'], $auth);
 
@@ -66,7 +65,6 @@ $router->create("DELETE", "/filiais/{uuid}", [$filialController, 'destroy'], $au
 
 //funcionarios
 $router->create("GET", "/funcionarios", [$funcionarioController, 'index'], $auth);
-$router->create("POST", "/funcionarios", [$funcionarioController, 'store'], $auth);
 $router->create("PUT", "/funcionarios/{uuid}", [$funcionarioController, 'update'], $auth);
 $router->create("DELETE", "/funcionarios/{uuid}", [$funcionarioController, 'destroy'], $auth);
 
