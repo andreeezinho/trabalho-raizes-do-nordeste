@@ -8,6 +8,7 @@ class FilialTransformer {
 
     public function transform(Filial $data) : array {
         return [
+            'id' => $data->id,
             'uuid' => $data->uuid,
             'num_filial' => $data->num_filial,
             'local' => $data->local,

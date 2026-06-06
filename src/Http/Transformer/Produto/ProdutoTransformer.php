@@ -15,6 +15,7 @@ class ProdutoTransformer {
 
     public function transform(Produto $data) : array {
         return [
+            'id' => $data->id,
             'uuid' => $data->uuid,
             'nome' => $data->nome,
             'codigo' => $data->codigo,

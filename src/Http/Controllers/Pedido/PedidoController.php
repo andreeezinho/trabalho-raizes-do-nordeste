@@ -126,6 +126,8 @@ class PedidoController extends Controller {
 
         $validate = $this->validate($data, [
             'valor_pago' => 'required|float',
+            'usar_pontos' => 'required|boolean',
+            'recuperar_pontos' => 'required|boolean',
             'pagamento' => 'required'
         ]);
 
@@ -136,12 +138,21 @@ class PedidoController extends Controller {
             ], 422);
         }
 
+        $cliente = $this->clienteRepository->findBy('id', $pedido->clientes_id);
         $total = 0;
 
         foreach($this->pedidoProdutoRepository->findProductsInOrder($pedido->id) as $prod){
             $preco = $this->produtoRepository->findBy('id', $prod->produtos_id)->preco * $prod->quantidade;
 
             $total += $preco;
+        }
+
+        if(isset($data['usar_pontos']) && $data['usar_pontos']){
+            $total -= $cliente->pontos;
+
+            $this->clienteRepository->update([
+                'pontos' => 0
+            ], $cliente->id);
         }
 
         if($total > $data['valor_pago']){
@@ -156,6 +167,12 @@ class PedidoController extends Controller {
             return $this->respJson([
                 'message' => 'Não foi possível atualizar pedido'
             ], 500);
+        }
+
+        if(isset($data['recuperar_pontos']) && $data['recuperar_pontos']){
+            $this->clienteRepository->update([
+                'pontos' => $cliente->pontos + 1
+            ], $cliente->id);
         }
 
         return $this->respJson([
