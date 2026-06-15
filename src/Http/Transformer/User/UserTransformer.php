@@ -8,7 +8,6 @@ class UserTransformer {
 
     public function transform(User $data) : array {
         return [
-            'id' => $data->id,
             'uuid' => $data->uuid,
             'nome' => $data->nome,
             'email' => $data->email,

@@ -38,6 +38,12 @@ class MetaController extends Controller {
     public function store(Request $request){
         $data = $request->all();
 
+        if(is_null($this->filialRepository->findBy('id', $data['filiais_id']))){
+            return $this->respJson([
+                'message' => 'Filial não encontrada'
+            ], 422);
+        }
+
         $validate = $this->validate($data, [
             'valor' => 'required',
             'concluida' => 'required',

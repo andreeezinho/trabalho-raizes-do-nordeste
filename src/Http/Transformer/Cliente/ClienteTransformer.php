@@ -16,7 +16,6 @@ class ClienteTransformer{
 
     public function transform(Cliente $data) : array {
         return [
-            'id' => $data->id,
             'uuid' => $data->uuid,
             'usuario' => $this->userTransformer->transform($data->usuario()),
             'pontos' => $data->pontos,

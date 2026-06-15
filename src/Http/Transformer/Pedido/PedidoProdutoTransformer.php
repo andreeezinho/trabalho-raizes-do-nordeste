@@ -18,7 +18,6 @@ class PedidoProdutoTransformer {
 
     public function transform(PedidoProduto $data) : array {
         return [
-            'id' => $data->id,
             'uuid' => $data->uuid,
             'quantidade' => $data->quantidade,
             'pedido' => $this->pedidoTransformer->transform($data->pedido()),

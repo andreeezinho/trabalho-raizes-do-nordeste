@@ -62,7 +62,7 @@ class PedidoProdutoController extends Controller {
         }
 
         return $this->respJson([
-            'message' => 'Cadastro realizado com sucesso',
+            'message' => 'Produto inserido na venda',
             'data' => $this->pedidoProdutoTransformer->transform($pedidoProduto)
         ], 201);
     }

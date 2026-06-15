@@ -18,7 +18,6 @@ class PedidoTransformer {
 
     public function transform(Pedido $data) : array {
         return [
-            'id' => $data->id,
             'uuid' => $data->uuid,
             'situacao' => $data->situacao,
             'pagamento' => $data->pagamento,

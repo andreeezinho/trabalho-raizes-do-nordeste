@@ -15,7 +15,6 @@ class MetaTransformer {
 
     public function transform(Meta $data) : array {
         return [
-            'id' => $data->id,
             'uuid' => $data->uuid,
             'nome' => $data->nome,
             'valor' => $data->valor,

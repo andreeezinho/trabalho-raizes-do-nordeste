@@ -18,7 +18,6 @@ class FuncionarioTransformer {
 
     public function transform(Funcionario $data) : array {
         return [
-            'id' => $data->id,
             'uuid' => $data->uuid,
             'usuario' => $this->userTransformer->transform($data->usuario()),
             'filial' => $this->filialTransformer->transform($data->filial()),
