@@ -138,3 +138,43 @@ Todos os endpoints que são protegitos por autenticação necessitam de um token
         ]
     }
     ```
+## Autenticação com Google via OAuth2
+
+Antes de começar é necessário criar uma [credencial](https://support.google.com/workspacemigrate/answer/9222992?hl=PT) JSON, inserir na diretório do projeto e o nome em `.env` `GOOGLE_CREDENTIALS=''`
+
+Para autenticação via Google, existem dois endpoints que são necessários:
+
+1:
+
+**GET** `/google-link`
+
+ - **Headers:** `""`
+ - **Resposta:** 
+    ```bash
+    {
+        "message": "Sucesso ao gerar link",
+        "data": "https://link-do-google-auth"
+    }
+    ```
+Esse endpoint gera o link para a tela de login do google e redireciona para o endpoint definido em `.env` `GOOGLE_REDIRECT_URI=''`
+
+Ao redirecionar para o local desejado, ele insere um código como parâmetro na URI `http://localhost:5173?code=codigo_que_ira_aparecer`
+
+2:
+
+É necessário passar o código para esse endpoint como `code`
+
+**POST** `/google-auth`
+
+ - **Headers:** `""`
+ - **Resposta:** 
+    ```bash
+    {
+        "message": "Sucesso ao logar com o Google",
+        "data": {token}
+    }
+    ```
+
+O endpoint acessa a API do Google para verificar o código e retornar os dados do usuário.
+
+Se o usuário já estiver cadastro, ele gera o token JWT. Se não, ele cadastra o usuário no database e depois retorna o token.
