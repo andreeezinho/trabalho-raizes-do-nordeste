@@ -181,3 +181,19 @@ Ao redirecionar para o local desejado, ele insere um código como parâmetro na 
 O endpoint acessa a API do Google para verificar o código e retornar os dados do usuário.
 
 Se o usuário já estiver cadastro, ele gera o token JWT. Se não, ele cadastra o usuário no database e depois retorna o token.
+
+## Testes e documentação de endpoints com POSTMAN e SwaggerAPI
+
+Para conseguir testar todas os endpoints serão necessários alguns arquivos, de acordo com qual modo for usar (Postman ou SwaggerAPI)
+
+### Coleção Postman
+
+Para passar todos os endpoints para o postman e testar por lá, pegue o arquivo `Projeto Multidisciplinar.postman_collction.json` na raiz do projeto. Após encontrá-lo, entre no Postman e importe esse arquivo para dentro dele. Após isso, faça a primeira autenticação em `/Auth/Auth`. Esse endpoint irá retornar o Bearer Token para usar nos outros endpoints.
+
+### SwaggerAPI
+
+Para utilizar os endpoints com Swagger existem duas opções: arquivo JSON para importar na sua conta Swagger ou arquivo HTML para exibir os endpoints localmente.
+ - JSON:
+  O arquivo JSON do swagger se encontra na raiz do projeto como `SwaggerProjetoMultidisciplinarJSON.json`. Após encontar o arquivo, insira ele ao importar em sua conta no site do Swagger
+ - HTML
+  Após iniciar o projeto localmente em `http://localhost:8888`, conecte-se em `http://localhost:8888/swagger.html`. Lá estarão todos os endpoints e suas descrições
