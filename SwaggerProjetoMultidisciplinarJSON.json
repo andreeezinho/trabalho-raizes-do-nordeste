@@ -1,0 +1,2705 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "API para Projeto Multidisciplinar - RU 4735355",
+    "description": "Projeto Multidisciplinar - Raízes do Nordeste",
+    "termsOfService": "https://mockapi.io",
+    "contact": {
+      "name": "André Victor",
+      "url": "https://github.com/andreeezinho",
+      "email": "andreeesapucaia@gmail.com"
+    },
+    "license": {
+      "name": "Licença GPL 3.0",
+      "url": "https://gnu.org/licenses/gpl-3.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "externalDocs": {
+    "description": "Documentação",
+    "url": "https://mockapi.io/"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/auth": {
+      "post": {
+        "summary": "Autenticar usuário com email e senha",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/auth_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso ao fazer login",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/google-auth": {
+      "post": {
+        "summary": "Autenticar usuário com Conta google",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/googleauth_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso ao fazer login com o Google",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/google-link": {
+      "get": {
+        "summary": "Consultar link para Autenticação Google",
+        "responses": {
+          "200": {
+            "description": "Sucesso ao gerar link",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_2"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/me": {
+      "get": {
+        "summary": "Consultar informações do usuário",
+        "responses": {
+          "200": {
+            "description": "Usuário encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_3"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/recuperar-senha/enviar-codigo": {
+      "post": {
+        "summary": "Enviar email com código de recuperação de senha",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/recuperarsenha_enviarcodigo_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Código enviado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_4"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/recuperar-senha": {
+      "put": {
+        "summary": "Alterar senha com o código recebido",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/recuperarsenha_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Código enviado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usuarios": {
+      "get": {
+        "summary": "Listar usuários",
+        "responses": {
+          "200": {
+            "description": "Usuários listados",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_5"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Cadastrar usuário (como cliente ou funcionário)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/usuarios_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Cadastro realizado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_1"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/usuarios/{uuid}": {
+      "put": {
+        "summary": "Atualizar dados do Usuário",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/usuarios_uuid_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso ao atualizar usuário",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_2"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Deletar usuário",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sucesso ao excluir usuário",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_3"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/usuarios/{uuid}/password": {
+      "patch": {
+        "summary": "Atualizar senha do Usuário",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/uuid_password_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso ao atualizar senha",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/clientes": {
+      "get": {
+        "summary": "Listar clientes",
+        "responses": {
+          "200": {
+            "description": "Clientes listados",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_6"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/clientes/{uuid}": {
+      "put": {
+        "summary": "Atualizar dados do cliente",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/clientes_uuid_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso ao atualizar cliente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_4"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Deletar cliente",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sucesso ao excluir cliente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_5"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/filiais": {
+      "get": {
+        "summary": "Listar clientes",
+        "responses": {
+          "200": {
+            "description": "Clientes listados",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_7"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Cadastrar filial",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/filiais_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Cadastro realizado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_6"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/filiais/{uuid}": {
+      "put": {
+        "summary": "Atualizar dados da filial",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/filiais_uuid_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso ao atualizar filial",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_7"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Deletar filial",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sucesso ao excluir filial",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_8"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/funcionarios": {
+      "get": {
+        "summary": "Listar funcionários",
+        "responses": {
+          "200": {
+            "description": "Funcionários listados",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_8"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/funcionarios/{uuid}": {
+      "put": {
+        "summary": "Atualizar dados do funcionário",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/funcionarios_uuid_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso ao atualizar funcionário",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_9"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Deletar funcionário",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sucesso ao excluir funcionário",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_10"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/metas": {
+      "get": {
+        "summary": "Listar metas",
+        "responses": {
+          "200": {
+            "description": "Metas listadas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_9"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Cadastrar meta",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/metas_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Cadastro realizado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_11"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/metas/{uuid}": {
+      "put": {
+        "summary": "Atualizar dados da meta",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/metas_uuid_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso ao atualizar meta",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_12"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Deletar meta",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sucesso ao excluir meta",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_13"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/pedidos": {
+      "get": {
+        "summary": "Listar pedidos",
+        "responses": {
+          "200": {
+            "description": "Pedidos listados",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_10"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Cadastrar pedido",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/pedidos_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Cadastro realizado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_14"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/pedidos/{uuid}": {
+      "put": {
+        "summary": "Atualizar dados do pedido",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/pedidos_uuid_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso ao atualizar pedido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_15"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Deletar pedido",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sucesso ao excluir pedido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_16"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/pedidos/{uuid}/pagar": {
+      "put": {
+        "summary": "Atualizar pagamento do pedido",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/uuid_pagar_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso ao realizar pagamento do pedido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_17"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/pedido-produto": {
+      "get": {
+        "summary": "Listar produto no pedido",
+        "responses": {
+          "200": {
+            "description": "Produtos no pedido listados",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_11"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Cadastrar produto no pedido",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/pedidoproduto_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Cadastro realizado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_18"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/pedido-produto/{uuid}": {
+      "put": {
+        "summary": "Atualizar produto no pedido",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/pedidoproduto_uuid_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso ao atualizar produto no pedido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_19"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Deletar produto no pedido",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sucesso ao excluir produto no pedido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_20"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/produtos": {
+      "get": {
+        "summary": "Listar produtos",
+        "responses": {
+          "200": {
+            "description": "Produtos listados",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_12"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Cadastrar produto",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/produtos_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Cadastro realizado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_21"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/produtos/{uuid}": {
+      "put": {
+        "summary": "Atualizar produto",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/produtos_uuid_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso ao atualizar produto",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_22"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Deletar produto",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sucesso ao excluir produto",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_23"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "funcionarios_uuid_body": {
+        "type": "object",
+        "properties": {
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          },
+          "pontos": {
+            "type": "integer",
+            "example": 10
+          }
+        }
+      },
+      "metas_body": {
+        "type": "object",
+        "properties": {
+          "filiais_id": {
+            "type": "integer",
+            "example": 1
+          },
+          "nome": {
+            "type": "string",
+            "example": "Nome da meta"
+          },
+          "valor": {
+            "type": "number",
+            "example": 1000
+          },
+          "concluida": {
+            "type": "integer",
+            "example": 0
+          },
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-12-31"
+          }
+        }
+      },
+      "filiais_uuid_body": {
+        "type": "object",
+        "properties": {
+          "local": {
+            "type": "string",
+            "example": "Local"
+          },
+          "num_filial": {
+            "type": "integer",
+            "example": 12345
+          },
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "inline_response_200_5_data": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "telefone": {
+            "type": "string"
+          },
+          "data_nasc": {
+            "type": "string"
+          },
+          "ativo": {
+            "type": "integer"
+          },
+          "icone": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "nullable": true
+          },
+          "updated_at": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "inline_response_200_11_pedido_cliente": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "usuario": {
+            "$ref": "#/components/schemas/inline_response_200_11_pedido_cliente_usuario"
+          },
+          "pontos": {
+            "type": "integer"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "inline_response_201_22_data": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          },
+          "nome": {
+            "type": "string",
+            "example": "Produto"
+          },
+          "codigo": {
+            "type": "string",
+            "example": "12345"
+          },
+          "preco": {
+            "type": "number",
+            "example": 19.9
+          },
+          "estoque": {
+            "type": "integer",
+            "example": 100
+          },
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          },
+          "filial": {
+            "$ref": "#/components/schemas/inline_response_200_7_data"
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          }
+        }
+      },
+      "usuarios_uuid_body": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "example": "Nome do usuário"
+          },
+          "email": {
+            "type": "string",
+            "example": "usuario@email.com"
+          },
+          "telefone": {
+            "type": "string",
+            "example": "(99) 99999-9999"
+          },
+          "data_nasc": {
+            "type": "string",
+            "format": "date",
+            "example": "2000-01-01"
+          },
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          },
+          "is_admin": {
+            "type": "integer",
+            "example": 0
+          }
+        }
+      },
+      "inline_response_200_11_data": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          },
+          "quantidade": {
+            "type": "integer",
+            "example": 2
+          },
+          "pedido": {
+            "$ref": "#/components/schemas/inline_response_200_11_pedido"
+          },
+          "produto": {
+            "$ref": "#/components/schemas/inline_response_200_11_produto"
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          }
+        }
+      },
+      "inline_response_201_14_data": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          },
+          "situacao": {
+            "type": "string",
+            "example": "em andamento"
+          },
+          "pagamento": {
+            "type": "integer",
+            "example": 0
+          },
+          "status": {
+            "type": "string",
+            "example": "cozinha"
+          },
+          "filial": {
+            "$ref": "#/components/schemas/inline_response_200_7_data"
+          },
+          "cliente": {
+            "$ref": "#/components/schemas/inline_response_201_14_data_cliente"
+          },
+          "canalPedido": {
+            "type": "string",
+            "example": "APP"
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          }
+        }
+      },
+      "pedidoproduto_body": {
+        "type": "object",
+        "properties": {
+          "pedidos_id": {
+            "type": "integer",
+            "example": 1
+          },
+          "produtos_id": {
+            "type": "integer",
+            "example": 1
+          },
+          "quantidade": {
+            "type": "integer",
+            "example": 2
+          }
+        }
+      },
+      "produtos_uuid_body": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "example": "Produto"
+          },
+          "codigo": {
+            "type": "string",
+            "example": "12345"
+          },
+          "preco": {
+            "type": "number",
+            "example": 19.9
+          },
+          "estoque": {
+            "type": "integer",
+            "example": 100
+          },
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "pedidos_uuid_body": {
+        "type": "object",
+        "properties": {
+          "situacao": {
+            "type": "string",
+            "example": "em andamento"
+          },
+          "pagamento": {
+            "type": "integer",
+            "example": 0
+          },
+          "status": {
+            "type": "string",
+            "example": "pronto"
+          },
+          "canalPedido": {
+            "type": "string",
+            "example": "APP"
+          }
+        }
+      },
+      "filiais_body": {
+        "type": "object",
+        "properties": {
+          "local": {
+            "type": "string",
+            "example": "Local"
+          },
+          "num_filial": {
+            "type": "integer",
+            "example": 12345
+          },
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "inline_response_200_9": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Metas listadas"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inline_response_200_9_data"
+            }
+          }
+        }
+      },
+      "recuperarsenha_enviarcodigo_body": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "teste@email.com"
+          }
+        }
+      },
+      "inline_response_201_14_data_cliente": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          },
+          "usuario": {
+            "$ref": "#/components/schemas/inline_response_200_11_pedido_cliente_usuario"
+          },
+          "pontos": {
+            "type": "integer",
+            "example": 0
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          }
+        }
+      },
+      "inline_response_200_5": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Usuários listados"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inline_response_200_5_data"
+            }
+          }
+        }
+      },
+      "inline_response_200_6": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Clientes listados"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inline_response_200_6_data"
+            }
+          }
+        }
+      },
+      "inline_response_200_11_pedido_cliente_usuario": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "telefone": {
+            "type": "string"
+          },
+          "data_nasc": {
+            "type": "string"
+          },
+          "ativo": {
+            "type": "integer"
+          },
+          "icone": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "inline_response_200_7": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Clientes listados"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inline_response_200_7_data"
+            }
+          }
+        }
+      },
+      "inline_response_200_8": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Funcionários listados"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inline_response_200_8_data"
+            }
+          }
+        }
+      },
+      "inline_response_200_9_data": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          },
+          "nome": {
+            "type": "string",
+            "example": "Nome da meta"
+          },
+          "valor": {
+            "type": "number",
+            "example": 1000
+          },
+          "concluida": {
+            "type": "integer",
+            "example": 0
+          },
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          },
+          "filial": {
+            "$ref": "#/components/schemas/inline_response_200_9_filial"
+          },
+          "expires_at": {
+            "type": "string",
+            "example": "2026-12-31"
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          }
+        }
+      },
+      "recuperarsenha_body": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "teste@email.com"
+          },
+          "codigo": {
+            "type": "integer",
+            "example": 123456
+          },
+          "senha": {
+            "type": "string",
+            "example": "novaSenha"
+          }
+        }
+      },
+      "inline_response_200_6_data": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          },
+          "usuario": {
+            "$ref": "#/components/schemas/inline_response_200_6_usuario"
+          },
+          "pontos": {
+            "type": "integer",
+            "example": 0
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          }
+        }
+      },
+      "inline_response_200_3_data": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "telefone": {
+            "type": "string"
+          },
+          "data_nasc": {
+            "type": "string"
+          },
+          "ativo": {
+            "type": "integer"
+          },
+          "icone": {
+            "type": "string"
+          }
+        }
+      },
+      "inline_response_201_12_data": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          },
+          "nome": {
+            "type": "string",
+            "example": "Nome da meta"
+          },
+          "valor": {
+            "type": "number",
+            "example": 1000
+          },
+          "concluida": {
+            "type": "integer",
+            "example": 0
+          },
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          },
+          "filial": {
+            "$ref": "#/components/schemas/inline_response_200_7_data"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-12-31"
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          }
+        }
+      },
+      "produtos_body": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "example": "Produto"
+          },
+          "codigo": {
+            "type": "string",
+            "example": "12345"
+          },
+          "preco": {
+            "type": "number",
+            "example": 19.9
+          },
+          "estoque": {
+            "type": "integer",
+            "example": 100
+          },
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          },
+          "filiais_id": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "inline_response_200_1": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao logar com Google"
+          },
+          "data": {
+            "type": "string",
+            "example": "token"
+          }
+        }
+      },
+      "inline_response_200_10_data": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          },
+          "situacao": {
+            "type": "string",
+            "example": "aberto"
+          },
+          "pagamento": {
+            "type": "string",
+            "example": "pix"
+          },
+          "status": {
+            "type": "string",
+            "example": "pendente"
+          },
+          "filial": {
+            "$ref": "#/components/schemas/inline_response_200_9_filial"
+          },
+          "cliente": {
+            "$ref": "#/components/schemas/inline_response_200_11_pedido_cliente"
+          },
+          "canalPedido": {
+            "type": "string",
+            "example": "APP"
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          }
+        }
+      },
+      "inline_response_200_2": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao gerar link"
+          },
+          "data": {
+            "type": "string",
+            "example": "link_google"
+          }
+        }
+      },
+      "inline_response_200_3": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/inline_response_200_3_data"
+          }
+        }
+      },
+      "inline_response_200_4": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Código enviado para o email"
+          }
+        }
+      },
+      "inline_response_200_11_produto": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          },
+          "nome": {
+            "type": "string",
+            "example": "Produto"
+          },
+          "codigo": {
+            "type": "integer",
+            "example": 1001
+          },
+          "preco": {
+            "type": "number",
+            "example": 19.9
+          },
+          "estoque": {
+            "type": "integer",
+            "example": 50
+          },
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          },
+          "filial": {
+            "$ref": "#/components/schemas/inline_response_200_9_filial"
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          }
+        }
+      },
+      "inline_response_200_11": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Produtos no pedido listados"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inline_response_200_11_data"
+            }
+          }
+        }
+      },
+      "inline_response_201_23": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao excluir produto"
+          }
+        }
+      },
+      "inline_response_200_10": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Pedidos listados"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inline_response_200_10_data"
+            }
+          }
+        }
+      },
+      "inline_response_201_22": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao atualizar produto"
+          },
+          "data": {
+            "$ref": "#/components/schemas/inline_response_201_22_data"
+          }
+        }
+      },
+      "inline_response_200_12": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Produtos listados"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inline_response_200_12_data"
+            }
+          }
+        }
+      },
+      "clientes_uuid_body": {
+        "type": "object",
+        "properties": {
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          },
+          "pontos": {
+            "type": "integer",
+            "example": 10
+          }
+        }
+      },
+      "inline_response_201_21": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Cadastro realizado com sucesso"
+          },
+          "data": {
+            "$ref": "#/components/schemas/inline_response_201_22_data"
+          }
+        }
+      },
+      "inline_response_201_20": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao excluir produto no pedido"
+          }
+        }
+      },
+      "inline_response_200_8_data": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          },
+          "usuario": {
+            "$ref": "#/components/schemas/inline_response_200_6_usuario"
+          },
+          "cargo": {
+            "type": "string",
+            "example": "gerente"
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          }
+        }
+      },
+      "uuid_password_body": {
+        "type": "object",
+        "properties": {
+          "senha": {
+            "type": "string",
+            "example": "nova_senha"
+          }
+        }
+      },
+      "usuarios_body": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "example": "Nome do usuário"
+          },
+          "email": {
+            "type": "string",
+            "example": "usuario@email.com"
+          },
+          "telefone": {
+            "type": "string",
+            "example": "(99) 99999-9999"
+          },
+          "data_nasc": {
+            "type": "string",
+            "format": "date",
+            "example": "2000-01-01"
+          },
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          },
+          "icone": {
+            "type": "string",
+            "example": "default.png"
+          },
+          "is_client": {
+            "type": "boolean",
+            "example": true
+          },
+          "is_employee": {
+            "type": "boolean",
+            "example": false
+          },
+          "filiais_id": {
+            "type": "integer",
+            "example": 1
+          },
+          "cargo": {
+            "type": "string",
+            "example": "gerente"
+          },
+          "pontos": {
+            "type": "integer",
+            "example": 0
+          }
+        }
+      },
+      "inline_response_201_1_data": {
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          },
+          "nome": {
+            "type": "string",
+            "example": "Nome do usuário"
+          },
+          "email": {
+            "type": "string",
+            "example": "usuario@email.com"
+          },
+          "telefone": {
+            "type": "string",
+            "example": "75999999999"
+          },
+          "data_nasc": {
+            "type": "string",
+            "format": "date",
+            "example": "2000-01-01"
+          },
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          },
+          "icone": {
+            "type": "string",
+            "example": "default.png"
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          }
+        }
+      },
+      "auth_body": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "senha": {
+            "type": "string"
+          }
+        }
+      },
+      "pedidoproduto_uuid_body": {
+        "type": "object",
+        "properties": {
+          "quantidade": {
+            "type": "number",
+            "example": 2
+          }
+        }
+      },
+      "pedidos_body": {
+        "type": "object",
+        "properties": {
+          "situacao": {
+            "type": "string",
+            "example": "em andamento"
+          },
+          "pagamento": {
+            "type": "integer",
+            "example": 0
+          },
+          "status": {
+            "type": "string",
+            "example": "cozinha"
+          },
+          "filiais_id": {
+            "type": "integer",
+            "example": 1
+          },
+          "clientes_id": {
+            "type": "integer",
+            "example": 1
+          },
+          "canalPedido": {
+            "type": "string",
+            "example": "APP"
+          }
+        }
+      },
+      "inline_response_200_6_usuario": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          },
+          "nome": {
+            "type": "string",
+            "example": "Nome do usuário"
+          },
+          "email": {
+            "type": "string",
+            "example": "usuario@email.com"
+          },
+          "telefone": {
+            "type": "string",
+            "example": "75999999999"
+          },
+          "data_nasc": {
+            "type": "string",
+            "format": "date",
+            "example": "2000-01-01"
+          },
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          },
+          "icone": {
+            "type": "string",
+            "example": "default.png"
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          }
+        }
+      },
+      "inline_response_201": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao atualizar senha"
+          }
+        }
+      },
+      "inline_response_200": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "string",
+            "example": "token"
+          }
+        }
+      },
+      "inline_response_200_11_pedido": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "situacao": {
+            "type": "string"
+          },
+          "pagamento": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string"
+          },
+          "filial": {
+            "$ref": "#/components/schemas/inline_response_200_9_filial"
+          },
+          "cliente": {
+            "$ref": "#/components/schemas/inline_response_200_11_pedido_cliente"
+          },
+          "canalPedido": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "inline_response_200_7_data": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          },
+          "num_filial": {
+            "type": "integer",
+            "example": 123
+          },
+          "local": {
+            "type": "string",
+            "example": "Cidade, Estado"
+          },
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          }
+        }
+      },
+      "inline_response_201_8": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao excluir filial"
+          }
+        }
+      },
+      "inline_response_201_12": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao atualizar meta"
+          },
+          "data": {
+            "$ref": "#/components/schemas/inline_response_201_12_data"
+          }
+        }
+      },
+      "inline_response_201_9_data": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          },
+          "usuario": {
+            "$ref": "#/components/schemas/inline_response_200_6_usuario"
+          },
+          "filial": {
+            "$ref": "#/components/schemas/inline_response_200_7_data"
+          },
+          "pontos": {
+            "type": "integer",
+            "example": 0
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          }
+        }
+      },
+      "inline_response_201_9": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao atualizar funcionário"
+          },
+          "data": {
+            "$ref": "#/components/schemas/inline_response_201_9_data"
+          }
+        }
+      },
+      "inline_response_201_11": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Cadastro realizado com sucesso"
+          },
+          "data": {
+            "$ref": "#/components/schemas/inline_response_201_12_data"
+          }
+        }
+      },
+      "inline_response_201_14": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Cadastro realizado com sucesso"
+          },
+          "data": {
+            "$ref": "#/components/schemas/inline_response_201_14_data"
+          }
+        }
+      },
+      "inline_response_201_13": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao excluir meta"
+          }
+        }
+      },
+      "inline_response_201_4": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao atualizar cliente"
+          },
+          "data": {
+            "$ref": "#/components/schemas/inline_response_200_6_data"
+          }
+        }
+      },
+      "inline_response_200_12_data": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          },
+          "nome": {
+            "type": "string",
+            "example": "Produto"
+          },
+          "codigo": {
+            "type": "integer",
+            "example": 1001
+          },
+          "preco": {
+            "type": "number",
+            "example": 19.9
+          },
+          "estoque": {
+            "type": "integer",
+            "example": 50
+          },
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          },
+          "filial": {
+            "$ref": "#/components/schemas/inline_response_200_7_data"
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2026-01-01 00:00:00"
+          }
+        }
+      },
+      "inline_response_201_5": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao excluir cliente"
+          }
+        }
+      },
+      "uuid_pagar_body": {
+        "type": "object",
+        "properties": {
+          "valor_pago": {
+            "type": "number",
+            "example": 13.5
+          },
+          "usar_pontos": {
+            "type": "boolean",
+            "example": true
+          },
+          "recuperar_pontos": {
+            "type": "boolean",
+            "example": false
+          },
+          "pagamento": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "inline_response_201_6": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Cadastro realizado com sucesso"
+          },
+          "data": {
+            "$ref": "#/components/schemas/inline_response_200_7_data"
+          }
+        }
+      },
+      "inline_response_201_10": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao excluir funcionário"
+          }
+        }
+      },
+      "inline_response_201_7": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao atualizar filial"
+          },
+          "data": {
+            "$ref": "#/components/schemas/inline_response_200_7_data"
+          }
+        }
+      },
+      "inline_response_201_19": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao atualizar produto no pedido"
+          },
+          "data": {
+            "$ref": "#/components/schemas/inline_response_200_11_data"
+          }
+        }
+      },
+      "inline_response_200_9_filial": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "num_filial": {
+            "type": "integer"
+          },
+          "local": {
+            "type": "string"
+          },
+          "ativo": {
+            "type": "integer"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "inline_response_201_16": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao excluir pedido"
+          }
+        }
+      },
+      "inline_response_201_15": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao atualizar pedido"
+          },
+          "data": {
+            "$ref": "#/components/schemas/inline_response_201_14_data"
+          }
+        }
+      },
+      "inline_response_201_18": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Cadastro realizado com sucesso"
+          },
+          "data": {
+            "$ref": "#/components/schemas/inline_response_200_11_data"
+          }
+        }
+      },
+      "inline_response_201_17": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao realizar pagamento do pedido"
+          },
+          "data": {
+            "$ref": "#/components/schemas/inline_response_201_14_data"
+          }
+        }
+      },
+      "metas_uuid_body": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "example": "Nome da meta"
+          },
+          "valor": {
+            "type": "number",
+            "example": 1000
+          },
+          "concluida": {
+            "type": "integer",
+            "example": 0
+          },
+          "ativo": {
+            "type": "integer",
+            "example": 1
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-12-31"
+          }
+        }
+      },
+      "inline_response_201_1": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Cadastro realizado com sucesso"
+          },
+          "data": {
+            "$ref": "#/components/schemas/inline_response_201_1_data"
+          }
+        }
+      },
+      "inline_response_201_2": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao atualizar usuário"
+          },
+          "data": {
+            "$ref": "#/components/schemas/inline_response_201_1_data"
+          }
+        }
+      },
+      "googleauth_body": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "Hash da conta google"
+          }
+        }
+      },
+      "inline_response_201_3": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Sucesso ao excluir usuário"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

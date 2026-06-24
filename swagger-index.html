@@ -1,0 +1,3836 @@
+<!doctype html>
+<html>
+  <head>
+    <title>API para Projeto Multidisciplinar - RU 4735355</title>
+    <style type="text/css">
+      body {
+      	font-family: Trebuchet MS, sans-serif;
+      	font-size: 15px;
+      	color: #444;
+      	margin-right: 24px;
+      }
+      
+      h1	{
+      	font-size: 25px;
+      }
+      h2	{
+      	font-size: 20px;
+      }
+      h3	{
+      	font-size: 16px;
+      	font-weight: bold;
+      }
+      hr	{
+      	height: 1px;
+      	border: 0;
+      	color: #ddd;
+      	background-color: #ddd;
+      }
+      
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+      
+      .license-url {
+        margin-left: 20px;
+      }
+      
+      .model {
+        margin: 0 0 0px 20px;
+      }
+      
+      .method {
+        margin-left: 20px;
+      }
+      
+      .method-notes	{
+      	margin: 10px 0 20px 0;
+      	font-size: 90%;
+      	color: #555;
+      }
+      
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+      
+      .http-method {
+       text-transform: uppercase;
+      }
+      
+      pre.get {
+        background-color: #0f6ab4;
+      }
+      
+      pre.post {
+        background-color: #10a54a;
+      }
+      
+      pre.put {
+        background-color: #c5862b;
+      }
+      
+      pre.delete {
+        background-color: #a41e22;
+      }
+      
+      .huge	{
+      	color: #fff;
+      }
+      
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      
+      code {
+        white-space: pre;
+      }
+      
+      .nickname {
+        font-weight: bold;
+      }
+      
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+      
+      .up {
+        float:right;
+      }
+      
+      .parameter {
+        width: 500px;
+      }
+      
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+      
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+      
+      .param-type {
+        font-style: italic;
+      }
+      
+      .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+      }
+      
+      .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+      }
+      
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+      
+      .field-items	{
+      	padding: 0 0 15px 0;
+      	margin-bottom: 15px;
+      }
+      
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+      
+      .param-header {
+        font-weight: bold;
+      }
+      
+      .method-tags {
+        text-align: right;
+      }
+      
+      .method-tag {
+        background: none repeat scroll 0% 0% #24A600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #FFF;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>API para Projeto Multidisciplinar - RU 4735355</h1>
+    <div class="app-desc">Projeto Multidisciplinar - Raízes do Nordeste</div>
+    <div class="app-desc">More information: <a href="https://github.com/andreeezinho">https://github.com/andreeezinho</a></div>
+    <div class="app-desc">Contact Info: <a href="andreeesapucaia@gmail.com">andreeesapucaia@gmail.com</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    
+    <div class="license-info">Licença GPL 3.0</div>
+    <div class="license-url">https://gnu.org/licenses/gpl-3.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li></li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#authPost"><code><span class="http-method">post</span> /auth</code></a></li>
+  <li><a href="#clientesGet"><code><span class="http-method">get</span> /clientes</code></a></li>
+  <li><a href="#clientesUuidDelete"><code><span class="http-method">delete</span> /clientes/{uuid}</code></a></li>
+  <li><a href="#clientesUuidPut"><code><span class="http-method">put</span> /clientes/{uuid}</code></a></li>
+  <li><a href="#filiaisGet"><code><span class="http-method">get</span> /filiais</code></a></li>
+  <li><a href="#filiaisPost"><code><span class="http-method">post</span> /filiais</code></a></li>
+  <li><a href="#filiaisUuidDelete"><code><span class="http-method">delete</span> /filiais/{uuid}</code></a></li>
+  <li><a href="#filiaisUuidPut"><code><span class="http-method">put</span> /filiais/{uuid}</code></a></li>
+  <li><a href="#funcionariosGet"><code><span class="http-method">get</span> /funcionarios</code></a></li>
+  <li><a href="#funcionariosUuidDelete"><code><span class="http-method">delete</span> /funcionarios/{uuid}</code></a></li>
+  <li><a href="#funcionariosUuidPut"><code><span class="http-method">put</span> /funcionarios/{uuid}</code></a></li>
+  <li><a href="#googleAuthPost"><code><span class="http-method">post</span> /google-auth</code></a></li>
+  <li><a href="#googleLinkGet"><code><span class="http-method">get</span> /google-link</code></a></li>
+  <li><a href="#meGet"><code><span class="http-method">get</span> /me</code></a></li>
+  <li><a href="#metasGet"><code><span class="http-method">get</span> /metas</code></a></li>
+  <li><a href="#metasPost"><code><span class="http-method">post</span> /metas</code></a></li>
+  <li><a href="#metasUuidDelete"><code><span class="http-method">delete</span> /metas/{uuid}</code></a></li>
+  <li><a href="#metasUuidPut"><code><span class="http-method">put</span> /metas/{uuid}</code></a></li>
+  <li><a href="#pedidoProdutoGet"><code><span class="http-method">get</span> /pedido-produto</code></a></li>
+  <li><a href="#pedidoProdutoPost"><code><span class="http-method">post</span> /pedido-produto</code></a></li>
+  <li><a href="#pedidoProdutoUuidDelete"><code><span class="http-method">delete</span> /pedido-produto/{uuid}</code></a></li>
+  <li><a href="#pedidoProdutoUuidPut"><code><span class="http-method">put</span> /pedido-produto/{uuid}</code></a></li>
+  <li><a href="#pedidosGet"><code><span class="http-method">get</span> /pedidos</code></a></li>
+  <li><a href="#pedidosPost"><code><span class="http-method">post</span> /pedidos</code></a></li>
+  <li><a href="#pedidosUuidDelete"><code><span class="http-method">delete</span> /pedidos/{uuid}</code></a></li>
+  <li><a href="#pedidosUuidPagarPut"><code><span class="http-method">put</span> /pedidos/{uuid}/pagar</code></a></li>
+  <li><a href="#pedidosUuidPut"><code><span class="http-method">put</span> /pedidos/{uuid}</code></a></li>
+  <li><a href="#produtosGet"><code><span class="http-method">get</span> /produtos</code></a></li>
+  <li><a href="#produtosPost"><code><span class="http-method">post</span> /produtos</code></a></li>
+  <li><a href="#produtosUuidDelete"><code><span class="http-method">delete</span> /produtos/{uuid}</code></a></li>
+  <li><a href="#produtosUuidPut"><code><span class="http-method">put</span> /produtos/{uuid}</code></a></li>
+  <li><a href="#recuperarSenhaEnviarCodigoPost"><code><span class="http-method">post</span> /recuperar-senha/enviar-codigo</code></a></li>
+  <li><a href="#recuperarSenhaPut"><code><span class="http-method">put</span> /recuperar-senha</code></a></li>
+  <li><a href="#usuariosGet"><code><span class="http-method">get</span> /usuarios</code></a></li>
+  <li><a href="#usuariosPost"><code><span class="http-method">post</span> /usuarios</code></a></li>
+  <li><a href="#usuariosUuidDelete"><code><span class="http-method">delete</span> /usuarios/{uuid}</code></a></li>
+  <li><a href="#usuariosUuidPasswordPatch"><code><span class="http-method">patch</span> /usuarios/{uuid}/password</code></a></li>
+  <li><a href="#usuariosUuidPut"><code><span class="http-method">put</span> /usuarios/{uuid}</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="authPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /auth</code></pre></div>
+    <div class="method-summary">Autenticar usuário com email e senha (<span class="nickname">authPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#auth_body">auth_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : "token",
+  "message" : "message"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Sucesso ao fazer login
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="clientesGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /clientes</code></pre></div>
+    <div class="method-summary">Listar clientes (<span class="nickname">clientesGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_6">inline_response_200_6</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : [ {
+    "updated_at" : "2026-01-01 00:00:00",
+    "pontos" : 0,
+    "created_at" : "2026-01-01 00:00:00",
+    "usuario" : {
+      "telefone" : "75999999999",
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "nome" : "Nome do usuário",
+      "icone" : "default.png",
+      "data_nasc" : "2000-01-01T00:00:00.000+00:00",
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "email" : "usuario@email.com"
+    },
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  }, {
+    "updated_at" : "2026-01-01 00:00:00",
+    "pontos" : 0,
+    "created_at" : "2026-01-01 00:00:00",
+    "usuario" : {
+      "telefone" : "75999999999",
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "nome" : "Nome do usuário",
+      "icone" : "default.png",
+      "data_nasc" : "2000-01-01T00:00:00.000+00:00",
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "email" : "usuario@email.com"
+    },
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  } ],
+  "message" : "Clientes listados"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Clientes listados
+        <a href="#inline_response_200_6">inline_response_200_6</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="clientesUuidDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /clientes/{uuid}</code></pre></div>
+    <div class="method-summary">Deletar cliente (<span class="nickname">clientesUuidDelete</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_5">inline_response_201_5</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "Sucesso ao excluir cliente"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao excluir cliente
+        <a href="#inline_response_201_5">inline_response_201_5</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="clientesUuidPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /clientes/{uuid}</code></pre></div>
+    <div class="method-summary">Atualizar dados do cliente (<span class="nickname">clientesUuidPut</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#clientes_uuid_body">clientes_uuid_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_4">inline_response_201_4</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "updated_at" : "2026-01-01 00:00:00",
+    "pontos" : 0,
+    "created_at" : "2026-01-01 00:00:00",
+    "usuario" : {
+      "telefone" : "75999999999",
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "nome" : "Nome do usuário",
+      "icone" : "default.png",
+      "data_nasc" : "2000-01-01T00:00:00.000+00:00",
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "email" : "usuario@email.com"
+    },
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  },
+  "message" : "Sucesso ao atualizar cliente"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao atualizar cliente
+        <a href="#inline_response_201_4">inline_response_201_4</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="filiaisGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /filiais</code></pre></div>
+    <div class="method-summary">Listar clientes (<span class="nickname">filiaisGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_7">inline_response_200_7</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : [ {
+    "ativo" : 1,
+    "updated_at" : "2026-01-01 00:00:00",
+    "created_at" : "2026-01-01 00:00:00",
+    "num_filial" : 123,
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "local" : "Cidade, Estado"
+  }, {
+    "ativo" : 1,
+    "updated_at" : "2026-01-01 00:00:00",
+    "created_at" : "2026-01-01 00:00:00",
+    "num_filial" : 123,
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "local" : "Cidade, Estado"
+  } ],
+  "message" : "Clientes listados"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Clientes listados
+        <a href="#inline_response_200_7">inline_response_200_7</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="filiaisPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /filiais</code></pre></div>
+    <div class="method-summary">Cadastrar filial (<span class="nickname">filiaisPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#filiais_body">filiais_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_6">inline_response_201_6</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "ativo" : 1,
+    "updated_at" : "2026-01-01 00:00:00",
+    "created_at" : "2026-01-01 00:00:00",
+    "num_filial" : 123,
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "local" : "Cidade, Estado"
+  },
+  "message" : "Cadastro realizado com sucesso"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Cadastro realizado com sucesso
+        <a href="#inline_response_201_6">inline_response_201_6</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="filiaisUuidDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /filiais/{uuid}</code></pre></div>
+    <div class="method-summary">Deletar filial (<span class="nickname">filiaisUuidDelete</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_8">inline_response_201_8</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "Sucesso ao excluir filial"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao excluir filial
+        <a href="#inline_response_201_8">inline_response_201_8</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="filiaisUuidPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /filiais/{uuid}</code></pre></div>
+    <div class="method-summary">Atualizar dados da filial (<span class="nickname">filiaisUuidPut</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#filiais_uuid_body">filiais_uuid_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_7">inline_response_201_7</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "ativo" : 1,
+    "updated_at" : "2026-01-01 00:00:00",
+    "created_at" : "2026-01-01 00:00:00",
+    "num_filial" : 123,
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "local" : "Cidade, Estado"
+  },
+  "message" : "Sucesso ao atualizar filial"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao atualizar filial
+        <a href="#inline_response_201_7">inline_response_201_7</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="funcionariosGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /funcionarios</code></pre></div>
+    <div class="method-summary">Listar funcionários (<span class="nickname">funcionariosGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_8">inline_response_200_8</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : [ {
+    "updated_at" : "2026-01-01 00:00:00",
+    "created_at" : "2026-01-01 00:00:00",
+    "usuario" : {
+      "telefone" : "75999999999",
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "nome" : "Nome do usuário",
+      "icone" : "default.png",
+      "data_nasc" : "2000-01-01T00:00:00.000+00:00",
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "email" : "usuario@email.com"
+    },
+    "cargo" : "gerente",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  }, {
+    "updated_at" : "2026-01-01 00:00:00",
+    "created_at" : "2026-01-01 00:00:00",
+    "usuario" : {
+      "telefone" : "75999999999",
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "nome" : "Nome do usuário",
+      "icone" : "default.png",
+      "data_nasc" : "2000-01-01T00:00:00.000+00:00",
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "email" : "usuario@email.com"
+    },
+    "cargo" : "gerente",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  } ],
+  "message" : "Funcionários listados"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Funcionários listados
+        <a href="#inline_response_200_8">inline_response_200_8</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="funcionariosUuidDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /funcionarios/{uuid}</code></pre></div>
+    <div class="method-summary">Deletar funcionário (<span class="nickname">funcionariosUuidDelete</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_10">inline_response_201_10</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "Sucesso ao excluir funcionário"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao excluir funcionário
+        <a href="#inline_response_201_10">inline_response_201_10</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="funcionariosUuidPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /funcionarios/{uuid}</code></pre></div>
+    <div class="method-summary">Atualizar dados do funcionário (<span class="nickname">funcionariosUuidPut</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#funcionarios_uuid_body">funcionarios_uuid_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_9">inline_response_201_9</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "filial" : {
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "num_filial" : 123,
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "local" : "Cidade, Estado"
+    },
+    "updated_at" : "2026-01-01 00:00:00",
+    "pontos" : 0,
+    "created_at" : "2026-01-01 00:00:00",
+    "usuario" : {
+      "telefone" : "75999999999",
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "nome" : "Nome do usuário",
+      "icone" : "default.png",
+      "data_nasc" : "2000-01-01T00:00:00.000+00:00",
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "email" : "usuario@email.com"
+    },
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  },
+  "message" : "Sucesso ao atualizar funcionário"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao atualizar funcionário
+        <a href="#inline_response_201_9">inline_response_201_9</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="googleAuthPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /google-auth</code></pre></div>
+    <div class="method-summary">Autenticar usuário com Conta google (<span class="nickname">googleAuthPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#googleauth_body">googleauth_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_1">inline_response_200_1</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : "token",
+  "message" : "Sucesso ao logar com Google"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Sucesso ao fazer login com o Google
+        <a href="#inline_response_200_1">inline_response_200_1</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="googleLinkGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /google-link</code></pre></div>
+    <div class="method-summary">Consultar link para Autenticação Google (<span class="nickname">googleLinkGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_2">inline_response_200_2</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : "link_google",
+  "message" : "Sucesso ao gerar link"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Sucesso ao gerar link
+        <a href="#inline_response_200_2">inline_response_200_2</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="meGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /me</code></pre></div>
+    <div class="method-summary">Consultar informações do usuário (<span class="nickname">meGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_3">inline_response_200_3</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "telefone" : "telefone",
+    "ativo" : 0,
+    "nome" : "nome",
+    "icone" : "icone",
+    "data_nasc" : "data_nasc",
+    "uuid" : "uuid",
+    "email" : "email"
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Usuário encontrado
+        <a href="#inline_response_200_3">inline_response_200_3</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="metasGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /metas</code></pre></div>
+    <div class="method-summary">Listar metas (<span class="nickname">metasGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_9">inline_response_200_9</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : [ {
+    "ativo" : 1,
+    "concluida" : 0,
+    "filial" : {
+      "ativo" : 6,
+      "updated_at" : "updated_at",
+      "created_at" : "created_at",
+      "num_filial" : 0,
+      "uuid" : "uuid",
+      "local" : "local"
+    },
+    "expires_at" : "2026-12-31",
+    "updated_at" : "2026-01-01 00:00:00",
+    "valor" : 1000,
+    "created_at" : "2026-01-01 00:00:00",
+    "nome" : "Nome da meta",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  }, {
+    "ativo" : 1,
+    "concluida" : 0,
+    "filial" : {
+      "ativo" : 6,
+      "updated_at" : "updated_at",
+      "created_at" : "created_at",
+      "num_filial" : 0,
+      "uuid" : "uuid",
+      "local" : "local"
+    },
+    "expires_at" : "2026-12-31",
+    "updated_at" : "2026-01-01 00:00:00",
+    "valor" : 1000,
+    "created_at" : "2026-01-01 00:00:00",
+    "nome" : "Nome da meta",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  } ],
+  "message" : "Metas listadas"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Metas listadas
+        <a href="#inline_response_200_9">inline_response_200_9</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="metasPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /metas</code></pre></div>
+    <div class="method-summary">Cadastrar meta (<span class="nickname">metasPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#metas_body">metas_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_11">inline_response_201_11</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "ativo" : 1,
+    "concluida" : 0,
+    "filial" : {
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "num_filial" : 123,
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "local" : "Cidade, Estado"
+    },
+    "expires_at" : "2026-12-31T00:00:00.000+00:00",
+    "updated_at" : "2026-01-01 00:00:00",
+    "valor" : 1000,
+    "created_at" : "2026-01-01 00:00:00",
+    "nome" : "Nome da meta",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  },
+  "message" : "Cadastro realizado com sucesso"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Cadastro realizado com sucesso
+        <a href="#inline_response_201_11">inline_response_201_11</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="metasUuidDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /metas/{uuid}</code></pre></div>
+    <div class="method-summary">Deletar meta (<span class="nickname">metasUuidDelete</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_13">inline_response_201_13</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "Sucesso ao excluir meta"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao excluir meta
+        <a href="#inline_response_201_13">inline_response_201_13</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="metasUuidPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /metas/{uuid}</code></pre></div>
+    <div class="method-summary">Atualizar dados da meta (<span class="nickname">metasUuidPut</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#metas_uuid_body">metas_uuid_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_12">inline_response_201_12</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "ativo" : 1,
+    "concluida" : 0,
+    "filial" : {
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "num_filial" : 123,
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "local" : "Cidade, Estado"
+    },
+    "expires_at" : "2026-12-31T00:00:00.000+00:00",
+    "updated_at" : "2026-01-01 00:00:00",
+    "valor" : 1000,
+    "created_at" : "2026-01-01 00:00:00",
+    "nome" : "Nome da meta",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  },
+  "message" : "Sucesso ao atualizar meta"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao atualizar meta
+        <a href="#inline_response_201_12">inline_response_201_12</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="pedidoProdutoGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /pedido-produto</code></pre></div>
+    <div class="method-summary">Listar produto no pedido (<span class="nickname">pedidoProdutoGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_11">inline_response_200_11</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : [ {
+    "produto" : {
+      "preco" : 19.9,
+      "estoque" : 50,
+      "codigo" : 1001,
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "nome" : "Produto",
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    },
+    "updated_at" : "2026-01-01 00:00:00",
+    "pedido" : {
+      "cliente" : {
+        "updated_at" : "updated_at",
+        "pontos" : 6,
+        "created_at" : "created_at",
+        "usuario" : {
+          "telefone" : "telefone",
+          "ativo" : 0,
+          "updated_at" : "updated_at",
+          "created_at" : "created_at",
+          "nome" : "nome",
+          "icone" : "icone",
+          "data_nasc" : "data_nasc",
+          "uuid" : "uuid",
+          "email" : "email"
+        },
+        "uuid" : "uuid"
+      },
+      "canalPedido" : "canalPedido",
+      "situacao" : "situacao",
+      "filial" : {
+        "ativo" : 6,
+        "updated_at" : "updated_at",
+        "created_at" : "created_at",
+        "num_filial" : 0,
+        "uuid" : "uuid",
+        "local" : "local"
+      },
+      "updated_at" : "updated_at",
+      "created_at" : "created_at",
+      "pagamento" : 0,
+      "uuid" : "uuid",
+      "status" : "status"
+    },
+    "created_at" : "2026-01-01 00:00:00",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "quantidade" : 2
+  }, {
+    "produto" : {
+      "preco" : 19.9,
+      "estoque" : 50,
+      "codigo" : 1001,
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "nome" : "Produto",
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    },
+    "updated_at" : "2026-01-01 00:00:00",
+    "pedido" : {
+      "cliente" : {
+        "updated_at" : "updated_at",
+        "pontos" : 6,
+        "created_at" : "created_at",
+        "usuario" : {
+          "telefone" : "telefone",
+          "ativo" : 0,
+          "updated_at" : "updated_at",
+          "created_at" : "created_at",
+          "nome" : "nome",
+          "icone" : "icone",
+          "data_nasc" : "data_nasc",
+          "uuid" : "uuid",
+          "email" : "email"
+        },
+        "uuid" : "uuid"
+      },
+      "canalPedido" : "canalPedido",
+      "situacao" : "situacao",
+      "filial" : {
+        "ativo" : 6,
+        "updated_at" : "updated_at",
+        "created_at" : "created_at",
+        "num_filial" : 0,
+        "uuid" : "uuid",
+        "local" : "local"
+      },
+      "updated_at" : "updated_at",
+      "created_at" : "created_at",
+      "pagamento" : 0,
+      "uuid" : "uuid",
+      "status" : "status"
+    },
+    "created_at" : "2026-01-01 00:00:00",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "quantidade" : 2
+  } ],
+  "message" : "Produtos no pedido listados"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Produtos no pedido listados
+        <a href="#inline_response_200_11">inline_response_200_11</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="pedidoProdutoPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /pedido-produto</code></pre></div>
+    <div class="method-summary">Cadastrar produto no pedido (<span class="nickname">pedidoProdutoPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#pedidoproduto_body">pedidoproduto_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_18">inline_response_201_18</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "produto" : {
+      "preco" : 19.9,
+      "estoque" : 50,
+      "codigo" : 1001,
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "nome" : "Produto",
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    },
+    "updated_at" : "2026-01-01 00:00:00",
+    "pedido" : {
+      "cliente" : {
+        "updated_at" : "updated_at",
+        "pontos" : 6,
+        "created_at" : "created_at",
+        "usuario" : {
+          "telefone" : "telefone",
+          "ativo" : 0,
+          "updated_at" : "updated_at",
+          "created_at" : "created_at",
+          "nome" : "nome",
+          "icone" : "icone",
+          "data_nasc" : "data_nasc",
+          "uuid" : "uuid",
+          "email" : "email"
+        },
+        "uuid" : "uuid"
+      },
+      "canalPedido" : "canalPedido",
+      "situacao" : "situacao",
+      "filial" : {
+        "ativo" : 6,
+        "updated_at" : "updated_at",
+        "created_at" : "created_at",
+        "num_filial" : 0,
+        "uuid" : "uuid",
+        "local" : "local"
+      },
+      "updated_at" : "updated_at",
+      "created_at" : "created_at",
+      "pagamento" : 0,
+      "uuid" : "uuid",
+      "status" : "status"
+    },
+    "created_at" : "2026-01-01 00:00:00",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "quantidade" : 2
+  },
+  "message" : "Cadastro realizado com sucesso"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Cadastro realizado com sucesso
+        <a href="#inline_response_201_18">inline_response_201_18</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="pedidoProdutoUuidDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /pedido-produto/{uuid}</code></pre></div>
+    <div class="method-summary">Deletar produto no pedido (<span class="nickname">pedidoProdutoUuidDelete</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_20">inline_response_201_20</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "Sucesso ao excluir produto no pedido"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao excluir produto no pedido
+        <a href="#inline_response_201_20">inline_response_201_20</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="pedidoProdutoUuidPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /pedido-produto/{uuid}</code></pre></div>
+    <div class="method-summary">Atualizar produto no pedido (<span class="nickname">pedidoProdutoUuidPut</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#pedidoproduto_uuid_body">pedidoproduto_uuid_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_19">inline_response_201_19</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "produto" : {
+      "preco" : 19.9,
+      "estoque" : 50,
+      "codigo" : 1001,
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "nome" : "Produto",
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    },
+    "updated_at" : "2026-01-01 00:00:00",
+    "pedido" : {
+      "cliente" : {
+        "updated_at" : "updated_at",
+        "pontos" : 6,
+        "created_at" : "created_at",
+        "usuario" : {
+          "telefone" : "telefone",
+          "ativo" : 0,
+          "updated_at" : "updated_at",
+          "created_at" : "created_at",
+          "nome" : "nome",
+          "icone" : "icone",
+          "data_nasc" : "data_nasc",
+          "uuid" : "uuid",
+          "email" : "email"
+        },
+        "uuid" : "uuid"
+      },
+      "canalPedido" : "canalPedido",
+      "situacao" : "situacao",
+      "filial" : {
+        "ativo" : 6,
+        "updated_at" : "updated_at",
+        "created_at" : "created_at",
+        "num_filial" : 0,
+        "uuid" : "uuid",
+        "local" : "local"
+      },
+      "updated_at" : "updated_at",
+      "created_at" : "created_at",
+      "pagamento" : 0,
+      "uuid" : "uuid",
+      "status" : "status"
+    },
+    "created_at" : "2026-01-01 00:00:00",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "quantidade" : 2
+  },
+  "message" : "Sucesso ao atualizar produto no pedido"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao atualizar produto no pedido
+        <a href="#inline_response_201_19">inline_response_201_19</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="pedidosGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /pedidos</code></pre></div>
+    <div class="method-summary">Listar pedidos (<span class="nickname">pedidosGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_10">inline_response_200_10</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : [ {
+    "cliente" : {
+      "updated_at" : "updated_at",
+      "pontos" : 6,
+      "created_at" : "created_at",
+      "usuario" : {
+        "telefone" : "telefone",
+        "ativo" : 0,
+        "updated_at" : "updated_at",
+        "created_at" : "created_at",
+        "nome" : "nome",
+        "icone" : "icone",
+        "data_nasc" : "data_nasc",
+        "uuid" : "uuid",
+        "email" : "email"
+      },
+      "uuid" : "uuid"
+    },
+    "canalPedido" : "APP",
+    "situacao" : "aberto",
+    "filial" : {
+      "ativo" : 6,
+      "updated_at" : "updated_at",
+      "created_at" : "created_at",
+      "num_filial" : 0,
+      "uuid" : "uuid",
+      "local" : "local"
+    },
+    "updated_at" : "2026-01-01 00:00:00",
+    "created_at" : "2026-01-01 00:00:00",
+    "pagamento" : "pix",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "status" : "pendente"
+  }, {
+    "cliente" : {
+      "updated_at" : "updated_at",
+      "pontos" : 6,
+      "created_at" : "created_at",
+      "usuario" : {
+        "telefone" : "telefone",
+        "ativo" : 0,
+        "updated_at" : "updated_at",
+        "created_at" : "created_at",
+        "nome" : "nome",
+        "icone" : "icone",
+        "data_nasc" : "data_nasc",
+        "uuid" : "uuid",
+        "email" : "email"
+      },
+      "uuid" : "uuid"
+    },
+    "canalPedido" : "APP",
+    "situacao" : "aberto",
+    "filial" : {
+      "ativo" : 6,
+      "updated_at" : "updated_at",
+      "created_at" : "created_at",
+      "num_filial" : 0,
+      "uuid" : "uuid",
+      "local" : "local"
+    },
+    "updated_at" : "2026-01-01 00:00:00",
+    "created_at" : "2026-01-01 00:00:00",
+    "pagamento" : "pix",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "status" : "pendente"
+  } ],
+  "message" : "Pedidos listados"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Pedidos listados
+        <a href="#inline_response_200_10">inline_response_200_10</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="pedidosPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /pedidos</code></pre></div>
+    <div class="method-summary">Cadastrar pedido (<span class="nickname">pedidosPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#pedidos_body">pedidos_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_14">inline_response_201_14</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "cliente" : {
+      "updated_at" : "2026-01-01 00:00:00",
+      "pontos" : 0,
+      "created_at" : "2026-01-01 00:00:00",
+      "usuario" : {
+        "telefone" : "telefone",
+        "ativo" : 0,
+        "updated_at" : "updated_at",
+        "created_at" : "created_at",
+        "nome" : "nome",
+        "icone" : "icone",
+        "data_nasc" : "data_nasc",
+        "uuid" : "uuid",
+        "email" : "email"
+      },
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    },
+    "canalPedido" : "APP",
+    "situacao" : "em andamento",
+    "filial" : {
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "num_filial" : 123,
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "local" : "Cidade, Estado"
+    },
+    "updated_at" : "2026-01-01 00:00:00",
+    "created_at" : "2026-01-01 00:00:00",
+    "pagamento" : 0,
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "status" : "cozinha"
+  },
+  "message" : "Cadastro realizado com sucesso"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Cadastro realizado com sucesso
+        <a href="#inline_response_201_14">inline_response_201_14</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="pedidosUuidDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /pedidos/{uuid}</code></pre></div>
+    <div class="method-summary">Deletar pedido (<span class="nickname">pedidosUuidDelete</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_16">inline_response_201_16</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "Sucesso ao excluir pedido"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao excluir pedido
+        <a href="#inline_response_201_16">inline_response_201_16</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="pedidosUuidPagarPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /pedidos/{uuid}/pagar</code></pre></div>
+    <div class="method-summary">Atualizar pagamento do pedido (<span class="nickname">pedidosUuidPagarPut</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#uuid_pagar_body">uuid_pagar_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_17">inline_response_201_17</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "cliente" : {
+      "updated_at" : "2026-01-01 00:00:00",
+      "pontos" : 0,
+      "created_at" : "2026-01-01 00:00:00",
+      "usuario" : {
+        "telefone" : "telefone",
+        "ativo" : 0,
+        "updated_at" : "updated_at",
+        "created_at" : "created_at",
+        "nome" : "nome",
+        "icone" : "icone",
+        "data_nasc" : "data_nasc",
+        "uuid" : "uuid",
+        "email" : "email"
+      },
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    },
+    "canalPedido" : "APP",
+    "situacao" : "em andamento",
+    "filial" : {
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "num_filial" : 123,
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "local" : "Cidade, Estado"
+    },
+    "updated_at" : "2026-01-01 00:00:00",
+    "created_at" : "2026-01-01 00:00:00",
+    "pagamento" : 0,
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "status" : "cozinha"
+  },
+  "message" : "Sucesso ao realizar pagamento do pedido"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao realizar pagamento do pedido
+        <a href="#inline_response_201_17">inline_response_201_17</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="pedidosUuidPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /pedidos/{uuid}</code></pre></div>
+    <div class="method-summary">Atualizar dados do pedido (<span class="nickname">pedidosUuidPut</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#pedidos_uuid_body">pedidos_uuid_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_15">inline_response_201_15</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "cliente" : {
+      "updated_at" : "2026-01-01 00:00:00",
+      "pontos" : 0,
+      "created_at" : "2026-01-01 00:00:00",
+      "usuario" : {
+        "telefone" : "telefone",
+        "ativo" : 0,
+        "updated_at" : "updated_at",
+        "created_at" : "created_at",
+        "nome" : "nome",
+        "icone" : "icone",
+        "data_nasc" : "data_nasc",
+        "uuid" : "uuid",
+        "email" : "email"
+      },
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    },
+    "canalPedido" : "APP",
+    "situacao" : "em andamento",
+    "filial" : {
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "num_filial" : 123,
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "local" : "Cidade, Estado"
+    },
+    "updated_at" : "2026-01-01 00:00:00",
+    "created_at" : "2026-01-01 00:00:00",
+    "pagamento" : 0,
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "status" : "cozinha"
+  },
+  "message" : "Sucesso ao atualizar pedido"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao atualizar pedido
+        <a href="#inline_response_201_15">inline_response_201_15</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="produtosGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /produtos</code></pre></div>
+    <div class="method-summary">Listar produtos (<span class="nickname">produtosGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_12">inline_response_200_12</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : [ {
+    "preco" : 19.9,
+    "estoque" : 50,
+    "codigo" : 1001,
+    "ativo" : 1,
+    "filial" : {
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "num_filial" : 123,
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "local" : "Cidade, Estado"
+    },
+    "updated_at" : "2026-01-01 00:00:00",
+    "created_at" : "2026-01-01 00:00:00",
+    "nome" : "Produto",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  }, {
+    "preco" : 19.9,
+    "estoque" : 50,
+    "codigo" : 1001,
+    "ativo" : 1,
+    "filial" : {
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "num_filial" : 123,
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "local" : "Cidade, Estado"
+    },
+    "updated_at" : "2026-01-01 00:00:00",
+    "created_at" : "2026-01-01 00:00:00",
+    "nome" : "Produto",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  } ],
+  "message" : "Produtos listados"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Produtos listados
+        <a href="#inline_response_200_12">inline_response_200_12</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="produtosPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /produtos</code></pre></div>
+    <div class="method-summary">Cadastrar produto (<span class="nickname">produtosPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#produtos_body">produtos_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_21">inline_response_201_21</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "preco" : 19.9,
+    "estoque" : 100,
+    "codigo" : "12345",
+    "ativo" : 1,
+    "filial" : {
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "num_filial" : 123,
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "local" : "Cidade, Estado"
+    },
+    "updated_at" : "2026-01-01 00:00:00",
+    "created_at" : "2026-01-01 00:00:00",
+    "nome" : "Produto",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  },
+  "message" : "Cadastro realizado com sucesso"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Cadastro realizado com sucesso
+        <a href="#inline_response_201_21">inline_response_201_21</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="produtosUuidDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /produtos/{uuid}</code></pre></div>
+    <div class="method-summary">Deletar produto (<span class="nickname">produtosUuidDelete</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_23">inline_response_201_23</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "Sucesso ao excluir produto"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao excluir produto
+        <a href="#inline_response_201_23">inline_response_201_23</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="produtosUuidPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /produtos/{uuid}</code></pre></div>
+    <div class="method-summary">Atualizar produto (<span class="nickname">produtosUuidPut</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#produtos_uuid_body">produtos_uuid_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_22">inline_response_201_22</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "preco" : 19.9,
+    "estoque" : 100,
+    "codigo" : "12345",
+    "ativo" : 1,
+    "filial" : {
+      "ativo" : 1,
+      "updated_at" : "2026-01-01 00:00:00",
+      "created_at" : "2026-01-01 00:00:00",
+      "num_filial" : 123,
+      "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "local" : "Cidade, Estado"
+    },
+    "updated_at" : "2026-01-01 00:00:00",
+    "created_at" : "2026-01-01 00:00:00",
+    "nome" : "Produto",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  },
+  "message" : "Sucesso ao atualizar produto"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao atualizar produto
+        <a href="#inline_response_201_22">inline_response_201_22</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="recuperarSenhaEnviarCodigoPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /recuperar-senha/enviar-codigo</code></pre></div>
+    <div class="method-summary">Enviar email com código de recuperação de senha (<span class="nickname">recuperarSenhaEnviarCodigoPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#recuperarsenha_enviarcodigo_body">recuperarsenha_enviarcodigo_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_4">inline_response_200_4</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "Código enviado para o email"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Código enviado
+        <a href="#inline_response_200_4">inline_response_200_4</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="recuperarSenhaPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /recuperar-senha</code></pre></div>
+    <div class="method-summary">Alterar senha com o código recebido (<span class="nickname">recuperarSenhaPut</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#recuperarsenha_body">recuperarsenha_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201">inline_response_201</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "Sucesso ao atualizar senha"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Código enviado
+        <a href="#inline_response_201">inline_response_201</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="usuariosGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /usuarios</code></pre></div>
+    <div class="method-summary">Listar usuários (<span class="nickname">usuariosGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_5">inline_response_200_5</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : [ {
+    "telefone" : "telefone",
+    "ativo" : 0,
+    "updated_at" : "updated_at",
+    "created_at" : "created_at",
+    "nome" : "nome",
+    "icone" : "icone",
+    "data_nasc" : "data_nasc",
+    "uuid" : "uuid",
+    "email" : "email"
+  }, {
+    "telefone" : "telefone",
+    "ativo" : 0,
+    "updated_at" : "updated_at",
+    "created_at" : "created_at",
+    "nome" : "nome",
+    "icone" : "icone",
+    "data_nasc" : "data_nasc",
+    "uuid" : "uuid",
+    "email" : "email"
+  } ],
+  "message" : "Usuários listados"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Usuários listados
+        <a href="#inline_response_200_5">inline_response_200_5</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="usuariosPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /usuarios</code></pre></div>
+    <div class="method-summary">Cadastrar usuário (como cliente ou funcionário) (<span class="nickname">usuariosPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#usuarios_body">usuarios_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_1">inline_response_201_1</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "telefone" : "75999999999",
+    "ativo" : 1,
+    "updated_at" : "2026-01-01T00:00:00.000Z",
+    "created_at" : "2026-01-01T00:00:00.000Z",
+    "nome" : "Nome do usuário",
+    "icone" : "default.png",
+    "data_nasc" : "2000-01-01T00:00:00.000+00:00",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "email" : "usuario@email.com"
+  },
+  "message" : "Cadastro realizado com sucesso"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Cadastro realizado com sucesso
+        <a href="#inline_response_201_1">inline_response_201_1</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="usuariosUuidDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /usuarios/{uuid}</code></pre></div>
+    <div class="method-summary">Deletar usuário (<span class="nickname">usuariosUuidDelete</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_3">inline_response_201_3</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "Sucesso ao excluir usuário"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao excluir usuário
+        <a href="#inline_response_201_3">inline_response_201_3</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="usuariosUuidPasswordPatch"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /usuarios/{uuid}/password</code></pre></div>
+    <div class="method-summary">Atualizar senha do Usuário (<span class="nickname">usuariosUuidPasswordPatch</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#uuid_password_body">uuid_password_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201">inline_response_201</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "Sucesso ao atualizar senha"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao atualizar senha
+        <a href="#inline_response_201">inline_response_201</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="usuariosUuidPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /usuarios/{uuid}</code></pre></div>
+    <div class="method-summary">Atualizar dados do Usuário (<span class="nickname">usuariosUuidPut</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#usuarios_uuid_body">usuarios_uuid_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_201_2">inline_response_201_2</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "telefone" : "75999999999",
+    "ativo" : 1,
+    "updated_at" : "2026-01-01T00:00:00.000Z",
+    "created_at" : "2026-01-01T00:00:00.000Z",
+    "nome" : "Nome do usuário",
+    "icone" : "default.png",
+    "data_nasc" : "2000-01-01T00:00:00.000+00:00",
+    "uuid" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "email" : "usuario@email.com"
+  },
+  "message" : "Sucesso ao atualizar usuário"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Sucesso ao atualizar usuário
+        <a href="#inline_response_201_2">inline_response_201_2</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#auth_body"><code>auth_body</code></a></li>
+    <li><a href="#clientes_uuid_body"><code>clientes_uuid_body</code></a></li>
+    <li><a href="#filiais_body"><code>filiais_body</code></a></li>
+    <li><a href="#filiais_uuid_body"><code>filiais_uuid_body</code></a></li>
+    <li><a href="#funcionarios_uuid_body"><code>funcionarios_uuid_body</code></a></li>
+    <li><a href="#googleauth_body"><code>googleauth_body</code></a></li>
+    <li><a href="#inline_response_200"><code>inline_response_200</code></a></li>
+    <li><a href="#inline_response_200_1"><code>inline_response_200_1</code></a></li>
+    <li><a href="#inline_response_200_10"><code>inline_response_200_10</code></a></li>
+    <li><a href="#inline_response_200_10_data"><code>inline_response_200_10_data</code></a></li>
+    <li><a href="#inline_response_200_11"><code>inline_response_200_11</code></a></li>
+    <li><a href="#inline_response_200_11_data"><code>inline_response_200_11_data</code></a></li>
+    <li><a href="#inline_response_200_11_pedido"><code>inline_response_200_11_pedido</code></a></li>
+    <li><a href="#inline_response_200_11_pedido_cliente"><code>inline_response_200_11_pedido_cliente</code></a></li>
+    <li><a href="#inline_response_200_11_pedido_cliente_usuario"><code>inline_response_200_11_pedido_cliente_usuario</code></a></li>
+    <li><a href="#inline_response_200_11_produto"><code>inline_response_200_11_produto</code></a></li>
+    <li><a href="#inline_response_200_12"><code>inline_response_200_12</code></a></li>
+    <li><a href="#inline_response_200_12_data"><code>inline_response_200_12_data</code></a></li>
+    <li><a href="#inline_response_200_2"><code>inline_response_200_2</code></a></li>
+    <li><a href="#inline_response_200_3"><code>inline_response_200_3</code></a></li>
+    <li><a href="#inline_response_200_3_data"><code>inline_response_200_3_data</code></a></li>
+    <li><a href="#inline_response_200_4"><code>inline_response_200_4</code></a></li>
+    <li><a href="#inline_response_200_5"><code>inline_response_200_5</code></a></li>
+    <li><a href="#inline_response_200_5_data"><code>inline_response_200_5_data</code></a></li>
+    <li><a href="#inline_response_200_6"><code>inline_response_200_6</code></a></li>
+    <li><a href="#inline_response_200_6_data"><code>inline_response_200_6_data</code></a></li>
+    <li><a href="#inline_response_200_6_usuario"><code>inline_response_200_6_usuario</code></a></li>
+    <li><a href="#inline_response_200_7"><code>inline_response_200_7</code></a></li>
+    <li><a href="#inline_response_200_7_data"><code>inline_response_200_7_data</code></a></li>
+    <li><a href="#inline_response_200_8"><code>inline_response_200_8</code></a></li>
+    <li><a href="#inline_response_200_8_data"><code>inline_response_200_8_data</code></a></li>
+    <li><a href="#inline_response_200_9"><code>inline_response_200_9</code></a></li>
+    <li><a href="#inline_response_200_9_data"><code>inline_response_200_9_data</code></a></li>
+    <li><a href="#inline_response_200_9_filial"><code>inline_response_200_9_filial</code></a></li>
+    <li><a href="#inline_response_201"><code>inline_response_201</code></a></li>
+    <li><a href="#inline_response_201_1"><code>inline_response_201_1</code></a></li>
+    <li><a href="#inline_response_201_10"><code>inline_response_201_10</code></a></li>
+    <li><a href="#inline_response_201_11"><code>inline_response_201_11</code></a></li>
+    <li><a href="#inline_response_201_12"><code>inline_response_201_12</code></a></li>
+    <li><a href="#inline_response_201_12_data"><code>inline_response_201_12_data</code></a></li>
+    <li><a href="#inline_response_201_13"><code>inline_response_201_13</code></a></li>
+    <li><a href="#inline_response_201_14"><code>inline_response_201_14</code></a></li>
+    <li><a href="#inline_response_201_14_data"><code>inline_response_201_14_data</code></a></li>
+    <li><a href="#inline_response_201_14_data_cliente"><code>inline_response_201_14_data_cliente</code></a></li>
+    <li><a href="#inline_response_201_15"><code>inline_response_201_15</code></a></li>
+    <li><a href="#inline_response_201_16"><code>inline_response_201_16</code></a></li>
+    <li><a href="#inline_response_201_17"><code>inline_response_201_17</code></a></li>
+    <li><a href="#inline_response_201_18"><code>inline_response_201_18</code></a></li>
+    <li><a href="#inline_response_201_19"><code>inline_response_201_19</code></a></li>
+    <li><a href="#inline_response_201_1_data"><code>inline_response_201_1_data</code></a></li>
+    <li><a href="#inline_response_201_2"><code>inline_response_201_2</code></a></li>
+    <li><a href="#inline_response_201_20"><code>inline_response_201_20</code></a></li>
+    <li><a href="#inline_response_201_21"><code>inline_response_201_21</code></a></li>
+    <li><a href="#inline_response_201_22"><code>inline_response_201_22</code></a></li>
+    <li><a href="#inline_response_201_22_data"><code>inline_response_201_22_data</code></a></li>
+    <li><a href="#inline_response_201_23"><code>inline_response_201_23</code></a></li>
+    <li><a href="#inline_response_201_3"><code>inline_response_201_3</code></a></li>
+    <li><a href="#inline_response_201_4"><code>inline_response_201_4</code></a></li>
+    <li><a href="#inline_response_201_5"><code>inline_response_201_5</code></a></li>
+    <li><a href="#inline_response_201_6"><code>inline_response_201_6</code></a></li>
+    <li><a href="#inline_response_201_7"><code>inline_response_201_7</code></a></li>
+    <li><a href="#inline_response_201_8"><code>inline_response_201_8</code></a></li>
+    <li><a href="#inline_response_201_9"><code>inline_response_201_9</code></a></li>
+    <li><a href="#inline_response_201_9_data"><code>inline_response_201_9_data</code></a></li>
+    <li><a href="#metas_body"><code>metas_body</code></a></li>
+    <li><a href="#metas_uuid_body"><code>metas_uuid_body</code></a></li>
+    <li><a href="#pedidoproduto_body"><code>pedidoproduto_body</code></a></li>
+    <li><a href="#pedidoproduto_uuid_body"><code>pedidoproduto_uuid_body</code></a></li>
+    <li><a href="#pedidos_body"><code>pedidos_body</code></a></li>
+    <li><a href="#pedidos_uuid_body"><code>pedidos_uuid_body</code></a></li>
+    <li><a href="#produtos_body"><code>produtos_body</code></a></li>
+    <li><a href="#produtos_uuid_body"><code>produtos_uuid_body</code></a></li>
+    <li><a href="#recuperarsenha_body"><code>recuperarsenha_body</code></a></li>
+    <li><a href="#recuperarsenha_enviarcodigo_body"><code>recuperarsenha_enviarcodigo_body</code></a></li>
+    <li><a href="#usuarios_body"><code>usuarios_body</code></a></li>
+    <li><a href="#usuarios_uuid_body"><code>usuarios_uuid_body</code></a></li>
+    <li><a href="#uuid_pagar_body"><code>uuid_pagar_body</code></a></li>
+    <li><a href="#uuid_password_body"><code>uuid_password_body</code></a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="auth_body"><code>auth_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">senha (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="clientes_uuid_body"><code>clientes_uuid_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">pontos (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 10</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="filiais_body"><code>filiais_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">local (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Local</span></div>
+<div class="param">num_filial (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 12345</span></div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="filiais_uuid_body"><code>filiais_uuid_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">local (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Local</span></div>
+<div class="param">num_filial (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 12345</span></div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="funcionarios_uuid_body"><code>funcionarios_uuid_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">pontos (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 10</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="googleauth_body"><code>googleauth_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Hash da conta google</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200"><code>inline_response_200</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: token</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_1"><code>inline_response_200_1</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao logar com Google</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: token</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_10"><code>inline_response_200_10</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Pedidos listados</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_10_data">array[inline_response_200_10_data]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_10_data"><code>inline_response_200_10_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span></div>
+<div class="param">situacao (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: aberto</span></div>
+<div class="param">pagamento (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: pix</span></div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: pendente</span></div>
+<div class="param">filial (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_9_filial">inline_response_200_9_filial</a></span>  </div>
+<div class="param">cliente (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_11_pedido_cliente">inline_response_200_11_pedido_cliente</a></span>  </div>
+<div class="param">canalPedido (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: APP</span></div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_11"><code>inline_response_200_11</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Produtos no pedido listados</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_11_data">array[inline_response_200_11_data]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_11_data"><code>inline_response_200_11_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span></div>
+<div class="param">quantidade (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2</span></div>
+<div class="param">pedido (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_11_pedido">inline_response_200_11_pedido</a></span>  </div>
+<div class="param">produto (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_11_produto">inline_response_200_11_produto</a></span>  </div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_11_pedido"><code>inline_response_200_11_pedido</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">situacao (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">pagamento (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">filial (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_9_filial">inline_response_200_9_filial</a></span>  </div>
+<div class="param">cliente (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_11_pedido_cliente">inline_response_200_11_pedido_cliente</a></span>  </div>
+<div class="param">canalPedido (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_11_pedido_cliente"><code>inline_response_200_11_pedido_cliente</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">usuario (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_11_pedido_cliente_usuario">inline_response_200_11_pedido_cliente_usuario</a></span>  </div>
+<div class="param">pontos (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_11_pedido_cliente_usuario"><code>inline_response_200_11_pedido_cliente_usuario</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">nome (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">telefone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">data_nasc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">icone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_11_produto"><code>inline_response_200_11_produto</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span></div>
+<div class="param">nome (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Produto</span></div>
+<div class="param">codigo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1001</span></div>
+<div class="param">preco (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 19.9</span></div>
+<div class="param">estoque (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 50</span></div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">filial (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_9_filial">inline_response_200_9_filial</a></span>  </div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_12"><code>inline_response_200_12</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Produtos listados</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_12_data">array[inline_response_200_12_data]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_12_data"><code>inline_response_200_12_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span></div>
+<div class="param">nome (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Produto</span></div>
+<div class="param">codigo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1001</span></div>
+<div class="param">preco (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 19.9</span></div>
+<div class="param">estoque (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 50</span></div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">filial (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_7_data">inline_response_200_7_data</a></span>  </div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_2"><code>inline_response_200_2</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao gerar link</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: link_google</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_3"><code>inline_response_200_3</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_3_data">inline_response_200_3_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_3_data"><code>inline_response_200_3_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">nome (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">telefone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">data_nasc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">icone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_4"><code>inline_response_200_4</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Código enviado para o email</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_5"><code>inline_response_200_5</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Usuários listados</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_5_data">array[inline_response_200_5_data]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_5_data"><code>inline_response_200_5_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">nome (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">telefone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">data_nasc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">icone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_6"><code>inline_response_200_6</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Clientes listados</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_6_data">array[inline_response_200_6_data]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_6_data"><code>inline_response_200_6_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span></div>
+<div class="param">usuario (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_6_usuario">inline_response_200_6_usuario</a></span>  </div>
+<div class="param">pontos (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0</span></div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_6_usuario"><code>inline_response_200_6_usuario</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span></div>
+<div class="param">nome (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Nome do usuário</span></div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: usuario@email.com</span></div>
+<div class="param">telefone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 75999999999</span></div>
+<div class="param">data_nasc (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+          <div class="param-desc"><span class="param-type">example: Sat Jan 01 00:00:00 GMT 2000</span></div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">icone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: default.png</span></div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_7"><code>inline_response_200_7</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Clientes listados</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_7_data">array[inline_response_200_7_data]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_7_data"><code>inline_response_200_7_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span></div>
+<div class="param">num_filial (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 123</span></div>
+<div class="param">local (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Cidade, Estado</span></div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_8"><code>inline_response_200_8</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Funcionários listados</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_8_data">array[inline_response_200_8_data]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_8_data"><code>inline_response_200_8_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span></div>
+<div class="param">usuario (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_6_usuario">inline_response_200_6_usuario</a></span>  </div>
+<div class="param">cargo (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: gerente</span></div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_9"><code>inline_response_200_9</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Metas listadas</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_9_data">array[inline_response_200_9_data]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_9_data"><code>inline_response_200_9_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span></div>
+<div class="param">nome (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Nome da meta</span></div>
+<div class="param">valor (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1000</span></div>
+<div class="param">concluida (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0</span></div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">filial (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_9_filial">inline_response_200_9_filial</a></span>  </div>
+<div class="param">expires_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-12-31</span></div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_9_filial"><code>inline_response_200_9_filial</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">num_filial (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">local (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201"><code>inline_response_201</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao atualizar senha</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_1"><code>inline_response_201_1</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Cadastro realizado com sucesso</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_201_1_data">inline_response_201_1_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_10"><code>inline_response_201_10</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao excluir funcionário</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_11"><code>inline_response_201_11</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Cadastro realizado com sucesso</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_201_12_data">inline_response_201_12_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_12"><code>inline_response_201_12</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao atualizar meta</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_201_12_data">inline_response_201_12_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_12_data"><code>inline_response_201_12_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span></div>
+<div class="param">nome (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Nome da meta</span></div>
+<div class="param">valor (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1000</span></div>
+<div class="param">concluida (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0</span></div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">filial (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_7_data">inline_response_200_7_data</a></span>  </div>
+<div class="param">expires_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+          <div class="param-desc"><span class="param-type">example: Thu Dec 31 00:00:00 GMT 2026</span></div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_13"><code>inline_response_201_13</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao excluir meta</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_14"><code>inline_response_201_14</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Cadastro realizado com sucesso</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_201_14_data">inline_response_201_14_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_14_data"><code>inline_response_201_14_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span></div>
+<div class="param">situacao (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: em andamento</span></div>
+<div class="param">pagamento (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0</span></div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: cozinha</span></div>
+<div class="param">filial (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_7_data">inline_response_200_7_data</a></span>  </div>
+<div class="param">cliente (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_201_14_data_cliente">inline_response_201_14_data_cliente</a></span>  </div>
+<div class="param">canalPedido (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: APP</span></div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_14_data_cliente"><code>inline_response_201_14_data_cliente</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span></div>
+<div class="param">usuario (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_11_pedido_cliente_usuario">inline_response_200_11_pedido_cliente_usuario</a></span>  </div>
+<div class="param">pontos (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0</span></div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_15"><code>inline_response_201_15</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao atualizar pedido</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_201_14_data">inline_response_201_14_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_16"><code>inline_response_201_16</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao excluir pedido</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_17"><code>inline_response_201_17</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao realizar pagamento do pedido</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_201_14_data">inline_response_201_14_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_18"><code>inline_response_201_18</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Cadastro realizado com sucesso</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_11_data">inline_response_200_11_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_19"><code>inline_response_201_19</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao atualizar produto no pedido</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_11_data">inline_response_200_11_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_1_data"><code>inline_response_201_1_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span></div>
+<div class="param">nome (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Nome do usuário</span></div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: usuario@email.com</span></div>
+<div class="param">telefone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 75999999999</span></div>
+<div class="param">data_nasc (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+          <div class="param-desc"><span class="param-type">example: Sat Jan 01 00:00:00 GMT 2000</span></div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">icone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: default.png</span></div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01T00:00:00.000Z</span></div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01T00:00:00.000Z</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_2"><code>inline_response_201_2</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao atualizar usuário</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_201_1_data">inline_response_201_1_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_20"><code>inline_response_201_20</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao excluir produto no pedido</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_21"><code>inline_response_201_21</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Cadastro realizado com sucesso</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_201_22_data">inline_response_201_22_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_22"><code>inline_response_201_22</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao atualizar produto</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_201_22_data">inline_response_201_22_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_22_data"><code>inline_response_201_22_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span></div>
+<div class="param">nome (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Produto</span></div>
+<div class="param">codigo (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 12345</span></div>
+<div class="param">preco (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 19.9</span></div>
+<div class="param">estoque (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 100</span></div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">filial (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_7_data">inline_response_200_7_data</a></span>  </div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_23"><code>inline_response_201_23</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao excluir produto</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_3"><code>inline_response_201_3</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao excluir usuário</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_4"><code>inline_response_201_4</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao atualizar cliente</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_6_data">inline_response_200_6_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_5"><code>inline_response_201_5</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao excluir cliente</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_6"><code>inline_response_201_6</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Cadastro realizado com sucesso</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_7_data">inline_response_200_7_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_7"><code>inline_response_201_7</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao atualizar filial</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_7_data">inline_response_200_7_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_8"><code>inline_response_201_8</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao excluir filial</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_9"><code>inline_response_201_9</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sucesso ao atualizar funcionário</span></div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_201_9_data">inline_response_201_9_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_201_9_data"><code>inline_response_201_9_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span></div>
+<div class="param">usuario (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_6_usuario">inline_response_200_6_usuario</a></span>  </div>
+<div class="param">filial (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_7_data">inline_response_200_7_data</a></span>  </div>
+<div class="param">pontos (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0</span></div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2026-01-01 00:00:00</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="metas_body"><code>metas_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">filiais_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">nome (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Nome da meta</span></div>
+<div class="param">valor (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1000</span></div>
+<div class="param">concluida (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0</span></div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">expires_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+          <div class="param-desc"><span class="param-type">example: Thu Dec 31 00:00:00 GMT 2026</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="metas_uuid_body"><code>metas_uuid_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">nome (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Nome da meta</span></div>
+<div class="param">valor (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1000</span></div>
+<div class="param">concluida (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0</span></div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">expires_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+          <div class="param-desc"><span class="param-type">example: Thu Dec 31 00:00:00 GMT 2026</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="pedidoproduto_body"><code>pedidoproduto_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">pedidos_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">produtos_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">quantidade (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="pedidoproduto_uuid_body"><code>pedidoproduto_uuid_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">quantidade (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="pedidos_body"><code>pedidos_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">situacao (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: em andamento</span></div>
+<div class="param">pagamento (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0</span></div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: cozinha</span></div>
+<div class="param">filiais_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">clientes_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">canalPedido (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: APP</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="pedidos_uuid_body"><code>pedidos_uuid_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">situacao (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: em andamento</span></div>
+<div class="param">pagamento (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0</span></div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: pronto</span></div>
+<div class="param">canalPedido (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: APP</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="produtos_body"><code>produtos_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">nome (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Produto</span></div>
+<div class="param">codigo (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 12345</span></div>
+<div class="param">preco (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 19.9</span></div>
+<div class="param">estoque (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 100</span></div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">filiais_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="produtos_uuid_body"><code>produtos_uuid_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">nome (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Produto</span></div>
+<div class="param">codigo (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 12345</span></div>
+<div class="param">preco (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 19.9</span></div>
+<div class="param">estoque (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 100</span></div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="recuperarsenha_body"><code>recuperarsenha_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: teste@email.com</span></div>
+<div class="param">codigo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 123456</span></div>
+<div class="param">senha (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: novaSenha</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="recuperarsenha_enviarcodigo_body"><code>recuperarsenha_enviarcodigo_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: teste@email.com</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="usuarios_body"><code>usuarios_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">nome (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Nome do usuário</span></div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: usuario@email.com</span></div>
+<div class="param">telefone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: (99) 99999-9999</span></div>
+<div class="param">data_nasc (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+          <div class="param-desc"><span class="param-type">example: Sat Jan 01 00:00:00 GMT 2000</span></div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">icone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: default.png</span></div>
+<div class="param">is_client (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: true</span></div>
+<div class="param">is_employee (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: false</span></div>
+<div class="param">filiais_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">cargo (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: gerente</span></div>
+<div class="param">pontos (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="usuarios_uuid_body"><code>usuarios_uuid_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">nome (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Nome do usuário</span></div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: usuario@email.com</span></div>
+<div class="param">telefone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: (99) 99999-9999</span></div>
+<div class="param">data_nasc (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+          <div class="param-desc"><span class="param-type">example: Sat Jan 01 00:00:00 GMT 2000</span></div>
+<div class="param">ativo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">is_admin (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="uuid_pagar_body"><code>uuid_pagar_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">valor_pago (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 13.5</span></div>
+<div class="param">usar_pontos (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: true</span></div>
+<div class="param">recuperar_pontos (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: false</span></div>
+<div class="param">pagamento (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="uuid_password_body"><code>uuid_password_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">senha (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: nova_senha</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
