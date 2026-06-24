@@ -73,9 +73,12 @@ DB_PASSWORD=''
 
 JWT_SECRET=''
 
-#email e codigo para sistema conseguir enviar email
+#email e codigo para sistema conseguir enviar email via smtp
 EMAIL=''
 EMAIL_CODE=''
+
+GOOGLE_CREDENTIALS='' #arquivo json das credenciais
+GOOGLE_REDIRECT_URI='' #redirecionamento após a autenticacao
 
 CONTACT_DOC=''
 CONTACT_NUMBER=''
