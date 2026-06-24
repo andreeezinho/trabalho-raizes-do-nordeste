@@ -196,4 +196,4 @@ Para utilizar os endpoints com Swagger existem duas opções: arquivo JSON para 
  - JSON:
   O arquivo JSON do swagger se encontra na raiz do projeto como `SwaggerProjetoMultidisciplinarJSON.json`. Após encontar o arquivo, insira ele ao importar em sua conta no site do Swagger
  - HTML
-  Após iniciar o projeto localmente em `http://localhost:8888`, conecte-se em `http://localhost:8888/swagger.html`. Lá estarão todos os endpoints e suas descrições
+  Após iniciar o projeto localmente em `http://localhost:8888`, conecte-se em `http://localhost:8888/swagger-index.html`. Lá estarão todos os endpoints e suas descrições
