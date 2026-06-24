@@ -53,6 +53,14 @@ class PedidoProdutoController extends Controller {
             ], 422);
         }
 
+        $estoque = $this->produtoRepository->findBy('id', $data['produtos_id'])->estoque;
+
+        if($estoque <= 0){
+            return $this->respJson([
+                'message' => 'Não há estoque suficiente do produto'
+            ], 422);
+        }
+
         $pedidoProduto = $this->produtoPedidoRepository->create($data);
 
         if(is_null($pedidoProduto)){
