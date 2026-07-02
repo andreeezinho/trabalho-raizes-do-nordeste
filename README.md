@@ -57,7 +57,7 @@ app
 git clone https://github.com/andreeezinho/sistema-pdv.git
 ```
 
-### 2 - Remover '.example.' de `src/.env.example`
+### 2 - Remover '.example.' de `./env.example`
 
 ### 3 - Inserir valores nas variáveis
 Insira os valores de acordo com o seus dados
